@@ -1,4 +1,4 @@
-# 🍔 GooFoodoo
+# 🍔 GooFoodoo-Not yet complete!
 
 A modern and responsive food delivery landing page built with HTML and CSS.
 
