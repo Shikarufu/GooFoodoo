@@ -60,6 +60,14 @@ img{
   display: block;
 }
 
+.p-top{
+  padding-top: 10rem;
+}
+
+.text-center{
+  text-align: center;
+}
+
 /* header style */
 
 .navbar{
