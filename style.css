@@ -5,7 +5,7 @@
   padding: 0;
   box-sizing: border-box;
   font-family: "Roboto Flex", sans-serif;
-  /* border:.1rem solid red; */
+  /* border:.1rem solid greenyellow; */
 }
 /* decalre color variable */
 :root{
@@ -68,6 +68,11 @@ img{
   text-align: center;
 }
 
+.mt-4{
+  margin-top: 4rem;
+}
+
+
 /* header style */
 
 .navbar{
@@ -128,7 +133,8 @@ img{
 }
 
 .content,
-.image-container{
+.image-container,
+.service-card{
   flex:1;
   flex-basis: 300px;
 }
@@ -170,13 +176,72 @@ p{
   color: var(--pure-white);
 }
 
+/* section 1 */
+h5{
+  font-size: 1.2rem;
+  letter-spacing: .2rem;
+  color:var(--gold-finger);
+  text-transform: uppercase;
+}
+
+h2{
+  font-size:3.7rem;
+  text-transform: capitalize;
+  color:var(--lead);
+}
+
+h3{
+  font-size: 2rem;
+  text-transform: capitalize;
+  color:var(--lead);
+}
+
+.service-card h3 {
+  margin-top: 1.5rem;
+  margin-bottom: 1rem;
+
+}
+
+/* section 2 */
+
+.order-card{
+  flex:1;
+  flex-basis: 300px;
+  background:var(--pure-white);
+  border: .1rem solid var(--gold-finger);
+  padding: 0 1rem 2rem 1rem;
+  border-radius:2rem;
+  box-shadow: rgba(0, 0, 0, 0.05) 8px 8px 8px,
+  rgba(0, 0, 0, 0.05) 8px 8px 8px, inset;
+  transition: all .5s ease-out;
+}
+
+.order-card img{
+  width: 15rem;
+  filter: drop-shadow(
+    rgba(0, 0, 0, 0.2) 0 10px 10px
+  );
+}
+
+h4{
+  font-size: 1.8rem;
+  color:var(--lead);
+}
+
+.order-card .price{
+  font-size: 1.7rem;
+  color:var(--gold-finger);
+  padding:1.3rem 0 2rem 0;
+  /* top right bottom left */
+}
+
 /* footer style */
 
 
 
 
 /* meadia queries */
-@media screen and (max-width:780px){
+@media screen and (max-width:966px){
   /* header style */
   .navlist,
   .desktop-action .btn{
@@ -213,6 +278,9 @@ p{
   }
 
   /* section style */
+
+  /* hero style */
+
   h1{
     font-size: 3.6rem;
   }
@@ -228,4 +296,10 @@ p{
   .gap-4{
     gap: 4rem;
   }
+
+  /* section 1 */
+  h2{
+    font-size: 3rem;
+  }
+
 }
