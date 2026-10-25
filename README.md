@@ -32,13 +32,15 @@ GooFoodoo
 ├── index.html
 ├── style.css
 ├── README.md
-└── LICENSE
+├── LICENSE
+└── main.js
 ```
 
 ## 🛠️ Built With
 
 - HTML5
 - CSS3
+- Javascript
 
 ## 🎯 Purpose
 
