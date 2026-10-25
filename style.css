@@ -249,7 +249,7 @@ h4 {
 .cart-tab{
   background:var(--hint-yellow);
   position: fixed;
-  inset: 0 0 0 auto;
+  inset: 0 -500px 0 auto;
   width: 26rem;
   /* block means top and bottom */
   padding-block: 2rem;
