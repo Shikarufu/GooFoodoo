@@ -9,6 +9,7 @@ var swiper = new Swiper('.mySwiper', {
 // const cartIcon=document.getElementById('cart-icon');
 // we use this when in html no id it refer to class
 // first define variable
+// using class
 const cartIcon=document.querySelector('.cart-icon');
 const cartTab=document.querySelector('.cart-tab');
 const closeBtn=document.querySelector('.close-btn');
@@ -16,6 +17,8 @@ const cardList=document.querySelector('.card-list');
 const cartList=document.querySelector('.cart-list');
 const cartTotal=document.querySelector('.cart-total');
 const cartValue=document.querySelector('.cart-value');
+// using id
+const topBtn=document.getElementById('topbtn');
 
 // for mobile
 const hamburger=document.querySelector('.hamburger');
@@ -31,6 +34,26 @@ hamburger.addEventListener('click',()=>mobileMenu.classList.toggle('mobile-menu-
 hamburger.addEventListener('click', () => {
     bar.classList.toggle('fa-bars');
     bar.classList.toggle('fa-xmark');
+});
+// Back to top button
+window.addEventListener('scroll', () => {
+
+  if(window.scrollY > 300){
+      topBtn.style.display = 'block';
+  }
+  else{
+      topBtn.style.display = 'none';
+  }
+
+});
+
+topBtn.addEventListener('click', () => {
+
+  window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+  });
+
 });
 
 
@@ -165,8 +188,11 @@ const initApp=()=>{
     // console.log(productList);
     showCart();
   });
+  
 }
 
 // main function
 initApp();
+
+
 
