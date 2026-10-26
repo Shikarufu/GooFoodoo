@@ -43,7 +43,11 @@ li:hover{
   text-decoration-color: var(--gold-finger) ;
 } */
 
-li {
+li{
+  list-style: none;
+}
+
+.navbar li {
   list-style: none;
   transition: scale 0.3s ease-in-out, background-size 0.3s ease-in-out;
   background-image: linear-gradient(to right, var(--gold-finger), var(--gold-finger));
@@ -54,7 +58,7 @@ li {
   display: inline-block;
 }
 
-li:hover {
+.navbar li:hover {
   scale: 1.1;
   background-size: 100% 2px;
 }
@@ -564,14 +568,14 @@ input[type="email"]:focus{
     transform: translateX(-50%);
   }
 
-  li{
-    transition: none !important;
+  .navbar li{
+    transition:none !important;
   }
-
-  li:hover{
+  .navbar li:hover{
     scale: 1 !important;
-    background-size: 0% 2px !important;
+    background-size:0% 2% !important;
   }
+  
 
   /* section style */
   
