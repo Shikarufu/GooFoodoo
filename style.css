@@ -32,9 +32,33 @@ a {
   flex-wrap: wrap;
 }
 
+/* li {
+  list-style: none;
+  transition: all .3s ease-in-out;
+}
+
+li:hover{
+  transform: scale(1.1);
+  text-decoration-line: underline;
+  text-decoration-color: var(--gold-finger) ;
+} */
+
 li {
   list-style: none;
+  transition: scale 0.3s ease-in-out, background-size 0.3s ease-in-out;
+  background-image: linear-gradient(to right, var(--gold-finger), var(--gold-finger));
+  background-repeat: no-repeat;
+  background-position: bottom left;
+  background-size: 0% 2px;
+  padding-bottom: 4px; 
+  display: inline-block;
 }
+
+li:hover {
+  scale: 1.1;
+  background-size: 100% 2px;
+}
+
 
 .between {
   justify-content: space-between;
@@ -104,11 +128,12 @@ img {
   font: 1.1rem;
   color: var(--pure-white);
   box-shadow: rgba(0, 0, 0, 0.1) 0 2px 1px;
-  transition: 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
 }
 
 .btn:hover {
-  background: var(--lead);
+  opacity: 0.8;
+  transform: translateX(-2%);
 }
 
 .cart-icon {
@@ -210,6 +235,16 @@ h3 {
 .service-card h3 {
   margin-top: 1.5rem;
   margin-bottom: 1rem;
+  
+}
+
+.service-card{
+  transition: all .3s ease-in-out;
+}
+
+.service-card:hover{
+  cursor:default;
+  transform: translateY(-4%);
 }
 
 /* section 2 */
@@ -492,6 +527,11 @@ input[type="email"]:focus{
   .desktop-action .btn {
     display: none;
   }
+  
+  .btn:hover{
+    background:var(--gold-finger);
+    transform: none;
+  }
 
   .desktop-action .hamburger {
     display: block;
@@ -524,29 +564,17 @@ input[type="email"]:focus{
     transform: translateX(-50%);
   }
 
+  li{
+    transition: none !important;
+  }
+
+  li:hover{
+    scale: 1 !important;
+    background-size: 0% 2px !important;
+  }
+
   /* section style */
-  .order-card{
-    flex-basis: 150px;
-  }
   
-  .order-card:hover{
-    transform: none;
-  }
-  
-  .order-card img{
-    width: 11rem;
-  }
-  .order-card h4{
-    font-size: 1.2rem;
-  }
-
-  .order-card .price{
-    font-size: 1.2rem;
-  }
-
-  .order-card .btn{
-    padding: 0.8rem 1.5rem;
-  }
 
   /* hero style */
 
@@ -570,7 +598,41 @@ input[type="email"]:focus{
   h2 {
     font-size: 3rem;
   }
-  /* section 3 */
+
+  .service-card:hover{
+    transform: none;
+  }
+
+  .btn-container .btn:hover{
+    background: var(--lead);
+    color: var(--pure-white);
+  }
+  
+
+  /* section 2 */
+
+  .order-card{
+    flex-basis: 150px;
+  }
+  
+  .order-card:hover{
+    transform: none;
+  }
+  
+  .order-card img{
+    width: 11rem;
+  }
+  .order-card h4{
+    font-size: 1.2rem;
+  }
+
+  .order-card .price{
+    font-size: 1.2rem;
+  }
+
+  .order-card .btn{
+    padding: 0.8rem 1.5rem;
+  }
 
   /* section 4 */
   .app-container{

@@ -49,6 +49,7 @@ const updateTotals=()=>{
   });
 
   cartTotal.textContent=`$${(totalPrice.toFixed(2))}`;
+  // cartValue.textContent=cartProduct.length;
   cartValue.textContent=totalQuantity;
 };
 
