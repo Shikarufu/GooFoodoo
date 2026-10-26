@@ -232,6 +232,9 @@ h3 {
   width: 15rem;
   filter: drop-shadow(rgba(0, 0, 0, 0.2) 0 10px 10px);
 }
+.order-card:hover{
+  transform: translateY(5%);
+}
 
 h4 {
   font-size: 1.8rem;
@@ -250,7 +253,7 @@ h4 {
   background:var(--hint-yellow);
   position: fixed;
   inset: 0 -500px 0 auto;
-  width: 26rem;
+  width: 26.5rem;
   /* block means top and bottom */
   padding-block: 2rem;
   display: flex;
@@ -260,6 +263,7 @@ h4 {
   z-index: 99;
   box-shadow: 
   rgba(0, 0, 0, 0.1) -10px -10px 10px;
+  transition: .3s ease-in-out;
 }
 
 .cart-tab-active{
@@ -309,6 +313,11 @@ h4 {
   align-items: center;
   gap: 1rem;
   padding: .7rem 1rem;
+  transition:all .5s ease-in-out;
+}
+
+.item.slide-out{
+  transform: translateX(50%);
 }
 
 .cart-list .item:nth-child(even){
@@ -344,6 +353,8 @@ h4 {
   font-weight: 400;
   margin-inline:.3rem;
 }
+
+
 
 /* section 3 */
 .review-container{
@@ -509,11 +520,33 @@ input[type="email"]:focus{
   }
 
   .mobile-menu-active {
-    left: 50px;
+    left: 50%;
     transform: translateX(-50%);
   }
 
   /* section style */
+  .order-card{
+    flex-basis: 150px;
+  }
+  
+  .order-card:hover{
+    transform: none;
+  }
+  
+  .order-card img{
+    width: 11rem;
+  }
+  .order-card h4{
+    font-size: 1.2rem;
+  }
+
+  .order-card .price{
+    font-size: 1.2rem;
+  }
+
+  .order-card .btn{
+    padding: 0.8rem 1.5rem;
+  }
 
   /* hero style */
 
@@ -537,6 +570,8 @@ input[type="email"]:focus{
   h2 {
     font-size: 3rem;
   }
+  /* section 3 */
+
   /* section 4 */
   .app-container{
     padding: 2.2rem;
