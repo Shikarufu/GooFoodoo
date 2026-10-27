@@ -66,13 +66,10 @@ body.fade-in{
   text-align: center;
   border-radius: 1rem;
   transition: all .3s ease-in-out;
-  
-}
-.btn a{
-  text-decoration: none;
   display: flex;
   align-items: center;
   color: var(--lead);
+  text-decoration: none;
 
 }
 
@@ -203,6 +200,11 @@ input[type="password"]:focus{
   .container{
     flex-direction: column;
   }
+
+  .btn{
+    padding: .7rem;
+  }
+
   .left-side{
     height: 250px;
     width: 100%;

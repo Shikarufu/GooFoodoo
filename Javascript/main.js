@@ -196,7 +196,7 @@ initApp();
 
 
 //in this case i have two button and i want both of them get affect we use this
-const signIn=document.querySelectorAll('.btn');
+const signIn=document.querySelectorAll('.btnn');
 
 signIn.forEach(sign=>{
   sign.addEventListener('click',(e)=>{

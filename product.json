@@ -3,96 +3,96 @@
     "id":1,
     "name":"Double Beef Burger",
     "price":"$9.67",
-    "image":"/images/burger.webp"
+    "image":"images/burger.webp"
   },
   {
     "id":2,
     "name":"Veggie Pizza",
     "price":"$10.99",
-    "image":"/images/pizza.webp"
+    "image":"images/pizza.webp"
   },
   {
     "id":3,
     "name":"Fried Chicken",
     "price":"$13.45",
-    "image":"/images/fried-chicken.webp"
+    "image":"images/fried-chicken.webp"
   },
   {
     "id":4,
     "name":"Chicken Roll",
     "price":"$7.50",
-    "image":"/images/chicken-roll.webp"
+    "image":"images/chicken-roll.webp"
   },
   {
     "id":5,
     "name":"Sub Sandwich",
     "price":"$6.99",
-    "image":"/images/sandwich.webp"
+    "image":"images/sandwich.webp"
   },
   {
     "id":6,
     "name":"Chicken Lasagna",
     "price":"$16.45",
-    "image":"/images/lasagna.webp"
+    "image":"images/lasagna.webp"
   },
   {
     "id":7,
     "name":"Itallian Spaghetti",
     "price":"$7.65",
-    "image":"/images/spaghetti.webp"
+    "image":"images/spaghetti.webp"
   },
   {
     "id":8,
     "name":"Spring Roll",
     "price":"$9.31",
-    "image":"/images/spring-roll.webp"
+    "image":"images/spring-roll.webp"
   },
   {
     "id":9,
     "name":"French Fries",
     "price":"$5.9",
-    "image":"/images/french-fries.webp"
+    "image":"images/french-fries.webp"
   },
   {
     "id":10,
     "name":"Ramen",
     "price":"$8.50",
-    "image":"/images/ramen.webp"
+    "image":"images/ramen.webp"
   },
   {
     "id":11,
     "name":"Hot Dog",
     "price":"$2.41",
-    "image":"/images/hot-dog.webp"
+    "image":"images/hot-dog.webp"
   },
   {
     "id":12,
     "name":"Chicken Shawarma",
     "price":"$1.50",
-    "image":"/images/chicken-shawarma.webp"
+    "image":"images/chicken-shawarma.webp"
   },
   {
     "id":13,
     "name":"Tacos",
     "price":"$3.25",
-    "image":"/images/tacos.webp"
+    "image":"images/tacos.webp"
   },
   {
     "id":14,
     "name":"Birya",
     "price":"$2.15",
-    "image":"/images/biryana.webp"
+    "image":"images/biryana.webp"
   },
   {
     "id":15,
     "name":"Sandwich",
     "price":"$1.80",
-    "image":"/images/sandwich1.webp"
+    "image":"images/sandwich1.webp"
   },
   {
     "id":16,
     "name":"Chicken Curry",
     "price":"$4.25",
-    "image":"/images/chicken-curry.webp"
+    "image":"images/chicken-curry.webp"
   }
 ]
