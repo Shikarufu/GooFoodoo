@@ -1,6 +1,6 @@
 # 🍔 GooFoodoo-Not yet complete!
 
-A modern and responsive food delivery landing page built with HTML and CSS.
+A modern and responsive food delivery landing page built with HTML, CSS and JS.
 
 GooFoodoo is designed to provide users with a clean, attractive, and user-friendly experience for exploring food delivery services. The project focuses on modern UI design, responsive layouts, and visually appealing components.
 
@@ -25,15 +25,22 @@ https://shikarufu.github.io/GooFoodoo/
 ```text
 GooFoodoo
 │
+├── CSS/
+│   ├── form.css
+│   └──style.css
+├── HTML/
+│   ├── form.html
 ├── images/
 │   ├── delivery-boy.png
 │   └── ...
-│
+├── Javascript/
+│   ├── form.js
+│   └── main.js
+│ 
 ├── index.html
-├── style.css
-├── README.md
 ├── LICENSE
-└── main.js
+├── product.json
+└── README.md
 ```
 
 ## 🛠️ Built With

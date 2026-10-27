@@ -331,6 +331,44 @@ h4 {
 }
 
 
+.msg{
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-100%,-100%);
+  background:var(--hint-yellow);
+  padding:1rem 2rem 1rem 2rem;
+  opacity: 0;
+  transition: all .4s ease;
+  text-align: center;
+  border-radius:1rem;
+  box-shadow: rgba(0, 0, 0, 0.15)10px 10px 10px;
+}
+
+.msg .okBtn{
+  background:var(--gold-finger);
+  padding: .4rem;
+  margin-top: .4rem;
+  width: 70%;
+  border-radius: 1rem;
+  border: none;
+  color: var(--lead);
+  font-size: 1.2rem;
+  font-weight: 400;
+  transition: all .3s ease-in-out;
+}
+
+.msg .okBtn:hover{
+  cursor: pointer;
+  transform:scale(1.1);
+}
+
+.msg.active{
+  opacity: 1;
+  transform: translate(-100%,-100%) scale(1);
+
+}
+
 .total-container{
   width: 100%;
   background:var(--gold-finger);
@@ -641,6 +679,18 @@ input[type="email"]:focus{
     color: var(--pure-white);
   }
   
+  .msg{
+    /* transform: translate(-50%,-50%); */
+    padding: 1rem 1rem 1rem 1rem;
+    width: 70%; 
+    left: 80%;
+  }
+
+  .msg h3,
+  .msg p{
+    font-size: 1.2rem;
+  }
+
 
   /* section 2 */
 

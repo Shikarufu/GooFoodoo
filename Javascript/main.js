@@ -17,8 +17,11 @@ const cardList=document.querySelector('.card-list');
 const cartList=document.querySelector('.cart-list');
 const cartTotal=document.querySelector('.cart-total');
 const cartValue=document.querySelector('.cart-value');
+
 // using id
 const topBtn=document.getElementById('topbtn');
+const msg=document.getElementById('msg'),
+      okBtn=document.getElementById('okBtn');
 
 // for mobile
 const hamburger=document.querySelector('.hamburger');
@@ -105,12 +108,18 @@ const showCart=()=>{
   });
 };
 
+okBtn.addEventListener('click',()=>{
+  msg.classList.remove('active');
+});
+
 const addToCart=(product)=>{
 
+  // the item obj represent the cartProduct array.
+  // find is an array method that loop each element inside the array so this state means that it check each element if the current id is equal it show the msg
   const existingProduct=cartProduct.find(item=>item.id === product.id);
 
   if (existingProduct){
-    alert('Item already in your Cart!');
+    msg.classList.add('active');
     return;
   }
 
