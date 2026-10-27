@@ -179,22 +179,32 @@ input[type="password"]:focus{
   box-shadow: 0 0 15px rgba(0,0,0,0.3);
   /* display: none; */
   text-align: center;
+  opacity: 0;
+  transition: all .4s ease;
 }
 
 .popUp p{
   margin-bottom: 1rem;
 }
 
-.popUp a{
-  text-decoration: none;
+.popUp .okBtn{
+  /* text-decoration: none; */
   color: var(--lead);
 
   transition: all .3s ease-in-out;
 }
 
-.popUp a:hover{
+.popUp .okBtn:hover{
   transform: scale(1.1);
 }
+
+.popUp.active{
+  /* display: block; */
+
+  opacity: 1;
+  transform: translate(-50%,-50%) scale(1);
+}
+
 
 @media screen and (max-width:966px) {
   .container{
