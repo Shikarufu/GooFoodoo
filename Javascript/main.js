@@ -183,7 +183,7 @@ const addToCart=(product)=>{
 // syntax
 // fetch('file.').then(repsonse=>repsonse.json()).then(data=>{array=data});
 const initApp=()=>{
-  fetch('/product.json').then(response=>response.json()).then(data=>{
+  fetch('../product.json').then(response=>response.json()).then(data=>{
     productList=data;
     // console.log(productList);
     showCart();
