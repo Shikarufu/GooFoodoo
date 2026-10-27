@@ -204,7 +204,7 @@ signIn.forEach(sign=>{
 
     document.body.classList.add('fade-out');
     setTimeout(()=>{
-      window.location.href='form.html';
+      window.location.href='HTML/form.html';
     },500);
   });
 });

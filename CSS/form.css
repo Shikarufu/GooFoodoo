@@ -5,7 +5,7 @@
   padding: 0;
   box-sizing: border-box;
   font-family: "Roboto Flex", sans-serif;
-  border:.1rem solid greenyellow;
+  /* border:.1rem solid greenyellow; */
 }
 /* decalre color variable */
 :root {
@@ -60,18 +60,24 @@ body.fade-in{
   top: 5%;
   left: 2%;
   background:var(--hint-yellow);
-  text-decoration: none;
-  color: var(--lead);
+  border: none;
   padding: .3rem;
   width: 5rem;
   text-align: center;
   border-radius: 1rem;
   transition: all .3s ease-in-out;
+  
+}
+.btn a{
+  text-decoration: none;
   display: flex;
   align-items: center;
+  color: var(--lead);
+
 }
 
 .btn:hover{
+  cursor: pointer;
   transform: scale(1.2);
 }
 
