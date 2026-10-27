@@ -183,7 +183,7 @@ const addToCart=(product)=>{
 // syntax
 // fetch('file.').then(repsonse=>repsonse.json()).then(data=>{array=data});
 const initApp=()=>{
-  fetch('product.json').then(response=>response.json()).then(data=>{
+  fetch('/product.json').then(response=>response.json()).then(data=>{
     productList=data;
     // console.log(productList);
     showCart();
@@ -193,6 +193,22 @@ const initApp=()=>{
 
 // main function
 initApp();
+
+
+//in this case i have two button and i want both of them get affect we use this
+const signIn=document.querySelectorAll('.btn');
+
+signIn.forEach(sign=>{
+  sign.addEventListener('click',(e)=>{
+    e.preventDefault();
+
+    document.body.classList.add('fade-out');
+    setTimeout(()=>{
+      window.location.href='form.html';
+    },500);
+  });
+});
+
 
 
 

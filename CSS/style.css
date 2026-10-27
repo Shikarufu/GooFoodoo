@@ -18,6 +18,12 @@
 
 body {
   background: var(--eye-ball);
+  opacity: 1;
+  transition: .5s;
+}
+
+body.fade-out{
+  opacity: 0;
 }
 /* basic styling */
 a {
