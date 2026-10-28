@@ -25,6 +25,22 @@ https://shikarufu.github.io/GooFoodoo/
 ```text
 GooFoodoo
 │
+├── backend/
+│   ├──GooFoodoo/
+│   │   ├──.idea/
+│   │   │   └── ...
+│   │   ├──.mvn/
+│   │   │   └── ...
+│   │   ├──.src/
+│   │   │   └── ...
+│   │   ├──.target/
+│   │   │   └── ...
+│   │   │   ├── .gitattribute
+│   │   │   ├── .gitignore
+│   │   │   ├── HELP.md
+│   │   │   ├── mvnw
+│   │   │   ├── mvnw.cmd
+│   │   │   └── porm.xml
 ├── CSS/
 │   ├── form.css
 │   └──style.css

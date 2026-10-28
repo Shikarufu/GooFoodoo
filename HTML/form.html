@@ -10,24 +10,23 @@
   </head>
   <body>
     <div class="container">
-      
       <!-- <button  id="backBtn"  class="btn"> -->
-        <a href="../index.html" id="backBtn" class="btn">
-            <svg
-            xmlns="http://w3.org"
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-          >
-            <path d="m15 18-6-6 6-6" />
-          </svg>
-          Back
-        </a>
+      <a href="../index.html" id="backBtn" class="btn">
+        <svg
+          xmlns="http://w3.org"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <path d="m15 18-6-6 6-6" />
+        </svg>
+        Back
+      </a>
       <!-- </button> -->
       <!-- this is for image -->
       <div class="left-side">
@@ -38,22 +37,40 @@
       <div class="right-side">
         <div class="form-container">
           <h1>Create Account</h1>
-          <label for="">
-            <input type="text" placeholder="Name" autocomplete="off" />
-          </label>
-          <label for="">
-            <input type="email" placeholder="Email" autocomplete="off" />
-          </label>
-          <label for="">
-            <input type="password" placeholder="Password" autocomplete="off" />
-          </label>
-          <label for="">
-            <input
-              type="password"
-              placeholder="Confirm Password"
-              autocomplete="off"
-            />
-          </label>
+          <!-- <label for=""> -->
+          <input type="text" id="name" placeholder="Name" autocomplete="off" />
+          <!-- </label> -->
+          <!-- <label for=""> -->
+          <input
+            type="email"
+            id="email"
+            placeholder="Email"
+            autocomplete="off"
+          />
+          <!-- </label> -->
+          <!-- <br> -->
+          <!-- <span id="pwMsg"></span> -->
+          <!-- <label for=""> -->
+          <input
+            style="margin-top: 0.5rem"
+            type="password"
+            id="password"
+            placeholder="Password"
+            autocomplete="off"
+          />
+          <!-- </label>
+          <label for=""> -->
+          <!-- <br> -->
+          <!-- <span id="CfPwMsg"></span> -->
+          <input
+            style="margin-top: 0.5rem"
+            type="password"
+            id="confirmPassword"
+            placeholder="Confirm Password"
+            autocomplete="off"
+          />
+          <!-- <small id="msg"></small> -->
+          <!-- </label> -->
         </div>
         <div class="check-box">
           <input type="checkbox" autocomplete="off" />
@@ -68,9 +85,7 @@
         <div class="popUp" id="popUp">
           <h3>✅ Success!</h3>
           <p>Your account has been created.</p>
-          <button class="okBtn" id="okBtn">
-            Okay
-          </button>
+          <button class="okBtn" id="okBtn">Okay</button>
         </div>
       </div>
     </div>
