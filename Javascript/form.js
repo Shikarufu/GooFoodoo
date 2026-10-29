@@ -12,9 +12,10 @@ const warningPopUp = document.getElementById("warningPopUp");
 const errorPopUp=document.getElementById("errorPopUp");
 const okBtnErrors = document.querySelectorAll(".okBtnError");
 
+
 // clean
-const SUPABASE_URL = config.APIURL; 
-const SUPABASE_ANON_KEY = config.APIKEY;
+const SUPABASE_URL = 'https://bwbcymurogftbchfbjmf.supabase.co'; 
+const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJ3YmN5bXVyb2dmdGJjaGZiam1mIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTMyODIzNjAsImV4cCI6MjEwODg1ODM2MH0.XaXgEEfMFlRzwvveBT1tdbpIIyKIiFbwB25N9lgzb5Y';
 
 const _supabase = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
