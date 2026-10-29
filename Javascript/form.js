@@ -72,7 +72,8 @@ signUp.addEventListener("click", async (e) => {
       popUp.classList.add("active");
     }
   } catch (error) {
-    console.log("Erreur réseau / Inaccessible :", error);
+    // console.log("Erreur réseau / Inaccessible :", error);
+    msg.textContent = error.message;
     errorPopUp.classList.add("active");
   }
 });

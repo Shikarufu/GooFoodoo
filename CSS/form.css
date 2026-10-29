@@ -240,15 +240,7 @@ input[type="password"]:focus {
   transform: translate(-50%, -50%) scale(1);
 }
 
-/* Show red borders when filled, but invalid */
-input[data-state='invalid'] {
-  border-color: hsl(0, 76%, 50%);
-}
 
-/* Show green borders when valid */
-input[data-state='valid'] {
-  border-color: hsl(120, 76%, 50%);
-}
 
 @media screen and (max-width: 966px) {
   .container {
@@ -289,6 +281,10 @@ input[data-state='valid'] {
     margin-right: 6rem;
   } 
   
+  .right-side button{
+    width: 21rem;
+  }
+
   .right-side button:hover,
   .btn:hover {
     transform: none;
