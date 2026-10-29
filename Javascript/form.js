@@ -23,22 +23,26 @@ signUp.addEventListener("click", async (e) => {
   const password = document.getElementById("password");
   const confirmPassword = document.getElementById("confirmPassword");
 
-  const errorPopUp = document.getElementById("errorPopUp");
-  const okBtnError=document.getElementById("okBtnError");
+  const warningPopUp = document.getElementById("warningPopUp");
+
+  const okBtnErrors = document.querySelectorAll(".okBtnError");
   if (
     !name.value.trim() ||
     !email.value.trim() ||
     !password.value.trim() ||
     !confirmPassword.value.trim()
   ) {
-    errorPopUp.classList.add("active");
+    warningPopUp.classList.add("active");
 
-    okBtnError.addEventListener("click",()=>{
-      errorPopUp.classList.remove("active");
+    okBtnErrors.forEach((okBtnError) => {
+      okBtnError.addEventListener("click", () => {
+        warningPopUp.classList.remove("active");
+      });
     });
   }
 
   // request
+  // this once the user fill the form
   else {
     const response = await fetch("http://localhost:8082/api/users/register", {
       method: "POST",
@@ -53,8 +57,6 @@ signUp.addEventListener("click", async (e) => {
     });
     if (response.ok) {
       popUp.classList.add("active");
-    } else {
-      console.log("Error");
     }
   }
 });
