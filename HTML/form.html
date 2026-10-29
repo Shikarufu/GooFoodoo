@@ -38,37 +38,57 @@
         <div class="form-container">
           <h1>Create Account</h1>
           <!-- <label for=""> -->
-          <input type="text" id="name" placeholder="Name" autocomplete="off" />
+          <input
+            class="data"
+            type="text"
+            id="name"
+            placeholder="Name"
+            autocomplete="off"
+          />
           <!-- </label> -->
           <!-- <label for=""> -->
+
           <input
+            class="data"
             type="email"
             id="email"
             placeholder="Email"
             autocomplete="off"
           />
+
           <!-- </label> -->
           <!-- <br> -->
           <!-- <span id="pwMsg"></span> -->
           <!-- <label for=""> -->
-          <input
-            style="margin-top: 0.5rem"
-            type="password"
-            id="password"
-            placeholder="Password"
-            autocomplete="off"
-          />
+          <div class="input-group">
+            <input
+              class="data"
+              onkeyup="checkPw()"
+              style="margin-top: 0.5rem; margin-bottom: 5px"
+              type="password"
+              id="password"
+              placeholder="Password"
+              autocomplete="off"
+            />
+            <span id="pwMsg"></span>
+          </div>
+
           <!-- </label>
           <label for=""> -->
           <!-- <br> -->
-          <!-- <span id="CfPwMsg"></span> -->
-          <input
-            style="margin-top: 0.5rem"
-            type="password"
-            id="confirmPassword"
-            placeholder="Confirm Password"
-            autocomplete="off"
-          />
+          <div class="input-group">
+            <input
+              class="data"
+              onkeyup="checkPw()"
+              style="margin-top: 0.5rem; margin-bottom: 5px"
+              type="password"
+              id="confirmPassword"
+              placeholder="Confirm Password"
+              autocomplete="off"
+            />
+            <span id="CfPwMsg"></span>
+          </div>
+
           <!-- <small id="msg"></small> -->
           <!-- </label> -->
         </div>
@@ -81,10 +101,19 @@
         <button class="signUp" id="signUp">Sign Up</button>
         <p>Already have an account? <a href="">Sign in</a> Here</p>
 
+        <!-- message for telling user the problem -->
+        <!-- error -->
+         <!--  -->
+        <div class="popUp" id="errorPopUp">
+          <h3>⚠️ Warning!</h3>
+          <p style="margin-bottom:.2rem;">Please try again!</p>
+          <p style="margin-top:.2rem;">Input can not be empty!</p>
+          <button class="okBtn" id="okBtnError">Okay</button>
+        </div>
         <!-- for pop up -->
         <div class="popUp" id="popUp">
-          <h3>✅ Success!</h3>
-          <p>Your account has been created.</p>
+          <h3 id="msg1">✅ Success!</h3>
+          <p id="msg2">Your account has been created.</p>
           <button class="okBtn" id="okBtn">Okay</button>
         </div>
       </div>

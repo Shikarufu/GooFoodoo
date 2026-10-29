@@ -339,6 +339,8 @@ h4 {
   background:var(--hint-yellow);
   padding:1rem 2rem 1rem 2rem;
   opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
   transition: all .4s ease;
   text-align: center;
   border-radius:1rem;
@@ -366,7 +368,8 @@ h4 {
 .msg.active{
   opacity: 1;
   transform: translate(-100%,-100%) scale(1);
-
+  visibility: visible;
+  pointer-events: auto;
 }
 
 .total-container{

@@ -110,7 +110,6 @@ body.fade-in {
   color: #161101;
 }
 
-
 .check-box {
   display: flex;
   align-items: center;
@@ -132,20 +131,46 @@ input[type="password"]:focus {
   outline: none;
 }
 
-/* #pwMsg,
-#CfPwMsg {
-  font-size: 14px; */
-  /* margin-bottom: .5rem; */
-  /* margin-left: 5%;
-} */
+/* .input-password{
+  position: relative;
+}
 
-/* .valid {
+#pwMsg,
+#CfPwMsg {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  font-size: 14px; 
+}  */
+
+.input-group {
+  margin-bottom: .2rem;
+}
+
+.input-group input {
+  width: 100%;
+}
+
+#pwMsg,
+#CfPwMsg {
+  display: block;
+  min-height: 18px; /* reserves space */
+  font-size: 12px;
+  margin-top: 0.3rem;
+  transition: 0.3s;
+  margin-left: 2rem;
+}
+
+
+
+.notMatch {
+  color: #ef4444;
+}
+
+.match {
   color: rgb(47, 235, 47);
 }
 
-.invalid {
-  color: rgb(228, 44, 44);
-} */
 
 .right-side button {
   background: var(--gold-finger);
@@ -187,6 +212,8 @@ input[type="password"]:focus {
   /* display: none; */
   text-align: center;
   opacity: 0;
+  pointer-events: none;
+  visibility: hidden;
   transition: all 0.4s ease;
 }
 
@@ -207,9 +234,20 @@ input[type="password"]:focus {
 
 .popUp.active {
   /* display: block; */
-
+  visibility: visible;
+  pointer-events: auto;
   opacity: 1;
   transform: translate(-50%, -50%) scale(1);
+}
+
+/* Show red borders when filled, but invalid */
+input[data-state='invalid'] {
+  border-color: hsl(0, 76%, 50%);
+}
+
+/* Show green borders when valid */
+input[data-state='valid'] {
+  border-color: hsl(120, 76%, 50%);
 }
 
 @media screen and (max-width: 966px) {
@@ -246,11 +284,11 @@ input[type="password"]:focus {
     width: 80%;
     padding: 10px;
   }
-  /* #pwMsg,
+  #pwMsg,
   #CfPwMsg{
-    
-  } */
-
+    margin-right: 6rem;
+  } 
+  
   .right-side button:hover,
   .btn:hover {
     transform: none;
@@ -262,5 +300,9 @@ input[type="password"]:focus {
 
   .popUp .okBtn {
     width: 70%;
+  }
+
+  .popUp .okBtn:hover{
+    transform:none;
   }
 }
