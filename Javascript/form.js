@@ -3,6 +3,31 @@ const backBtn = document.getElementById("backBtn"),
   popUp = document.getElementById("popUp"),
   okBtn = document.getElementById("okBtn");
 
+const name = document.getElementById("name");
+const email = document.getElementById("email");
+const password = document.getElementById("password");
+const confirmPassword = document.getElementById("confirmPassword");
+
+const warningPopUp = document.getElementById("warningPopUp");
+const errorPopUp=document.getElementById("errorPopUp");
+const okBtnErrors = document.querySelectorAll(".okBtnError");
+
+// clean
+const SUPABASE_URL = config.SUPABASE_URL; 
+const SUPABASE_ANON_KEY = config.SUPABASE_ANON_KEY;
+
+// Initialisation du client Supabase
+const _supabase = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+
+
+// Gérer la fermeture de la pop-up d'avertissement une seule fois ici
+okBtnErrors.forEach((okBtnError) => {
+  okBtnError.addEventListener("click", () => {
+    warningPopUp.classList.remove("active");
+  });
+});
+
 backBtn.addEventListener("click", (e) => {
   e.preventDefault();
   document.body.classList.add("fade-in");
@@ -11,21 +36,14 @@ backBtn.addEventListener("click", (e) => {
   }, 500);
 });
 
+
+
+
+
+
 signUp.addEventListener("click", async (e) => {
   e.preventDefault();
 
-  // popUp.classList.add('active');
-  // alert("hello");
-
-  // declare variable
-  const name = document.getElementById("name");
-  const email = document.getElementById("email");
-  const password = document.getElementById("password");
-  const confirmPassword = document.getElementById("confirmPassword");
-
-  const warningPopUp = document.getElementById("warningPopUp");
-
-  const okBtnErrors = document.querySelectorAll(".okBtnError");
   if (
     !name.value.trim() ||
     !email.value.trim() ||
@@ -33,67 +51,45 @@ signUp.addEventListener("click", async (e) => {
     !confirmPassword.value.trim()
   ) {
     warningPopUp.classList.add("active");
-
-    okBtnErrors.forEach((okBtnError) => {
-      okBtnError.addEventListener("click", () => {
-        warningPopUp.classList.remove("active");
-      });
-    });
+    return; 
   }
 
-  // request
-  // this once the user fill the form
-  else {
-    const response = await fetch("http://localhost:8082/api/users/register", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        name: name.value,
-        email: email.value,
-        password: password.value,
-      }),
+  try {
+    const { data, error } = await _supabase.auth.signUp({
+      email: email.value.trim(),
+      password: password.value.trim(),
+      options: {
+        data: {
+          name: name.value.trim() 
+        }
+      }
     });
-    if (response.ok) {
-      popUp.classList.add("active");
+
+    if (error) {
+      console.log("Erreur Supabase :", error.message);
+    } else {
+      console.log("Inscription réussie !", data);
+      popUp.classList.add("active"); 
     }
+  } catch (error) {
+    console.log("Erreur réseau / Inaccessible :", error);
+    errorPopUp.classList.add("active");
   }
 });
 
 okBtn.addEventListener("click", (e) => {
   e.preventDefault();
-
   popUp.classList.remove("active");
-
   document.body.classList.add("fade-in");
   setTimeout(() => {
     window.location.href = "../index.html";
   }, 500);
 });
 
-// once user click the password field
-// span
 const pwMsg = document.getElementById("pwMsg");
 const CfPwMsg = document.getElementById("CfPwMsg");
 
-// password.addEventListener('focus',()=>{
-//   password.placeholder="Minimum 8 characters";
-// });
-
-// password.addEventListener('blur',()=>{
-//   password.placeholder="Password";
-// });
-
-// confirmPassword.addEventListener('focus',()=>{
-//   confirmPassword.placeholder="Minimum 8 characters";
-// });
-
-// confirmPassword.addEventListener('blur',()=>{
-//   confirmPassword.placeholder="Password";
-// });
 password.addEventListener("input", () => {
-  // console.log("you click me");
   if (password.value.length >= 8) {
     pwMsg.textContent = "Password length is valid";
     pwMsg.className = "match";
@@ -102,8 +98,8 @@ password.addEventListener("input", () => {
     pwMsg.className = "notMatch";
   }
 });
+
 confirmPassword.addEventListener("input", () => {
-  // console.log("you click me too");
   if (confirmPassword.value.length >= 8) {
     CfPwMsg.textContent = "Password length is valid";
     CfPwMsg.className = "match";
@@ -123,7 +119,7 @@ const checkPw = () => {
   } else {
     confirmPassword.style.backgroundColor = bad;
     password.style.backgroundColor = good;
-    CfPwMsg.textContent = "Passowrd does not match";
+    CfPwMsg.textContent = "Password does not match";
     CfPwMsg.className = "notMatch";
   }
 };
