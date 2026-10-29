@@ -13,15 +13,14 @@ const errorPopUp=document.getElementById("errorPopUp");
 const okBtnErrors = document.querySelectorAll(".okBtnError");
 
 // clean
-const SUPABASE_URL = config.SUPABASE_URL; 
-const SUPABASE_ANON_KEY = config.SUPABASE_ANON_KEY;
+const SUPABASE_URL = config.APIURL; 
+const SUPABASE_ANON_KEY = config.APIKEY;
 
-// Initialisation du client Supabase
 const _supabase = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
 
 
-// Gérer la fermeture de la pop-up d'avertissement une seule fois ici
+
 okBtnErrors.forEach((okBtnError) => {
   okBtnError.addEventListener("click", () => {
     warningPopUp.classList.remove("active");
