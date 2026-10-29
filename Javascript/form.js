@@ -9,22 +9,25 @@ const password = document.getElementById("password");
 const confirmPassword = document.getElementById("confirmPassword");
 
 const warningPopUp = document.getElementById("warningPopUp");
-const errorPopUp=document.getElementById("errorPopUp");
+const errorPopUp = document.getElementById("errorPopUp");
 const okBtnErrors = document.querySelectorAll(".okBtnError");
 
+const msg = document.getElementById("msg");
 
 // clean
-const SUPABASE_URL = 'https://bwbcymurogftbchfbjmf.supabase.co'; 
-const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJ3YmN5bXVyb2dmdGJjaGZiam1mIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTMyODIzNjAsImV4cCI6MjEwODg1ODM2MH0.XaXgEEfMFlRzwvveBT1tdbpIIyKIiFbwB25N9lgzb5Y';
+const SUPABASE_URL = "https://bwbcymurogftbchfbjmf.supabase.co";
+const SUPABASE_ANON_KEY =
+  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJ3YmN5bXVyb2dmdGJjaGZiam1mIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTMyODIzNjAsImV4cCI6MjEwODg1ODM2MH0.XaXgEEfMFlRzwvveBT1tdbpIIyKIiFbwB25N9lgzb5Y";
 
 const _supabase = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
-
-
-
 
 okBtnErrors.forEach((okBtnError) => {
   okBtnError.addEventListener("click", () => {
     warningPopUp.classList.remove("active");
+  });
+
+  okBtnError.addEventListener("click", () => {
+    errorPopUp.classList.remove("active");
   });
 });
 
@@ -36,11 +39,6 @@ backBtn.addEventListener("click", (e) => {
   }, 500);
 });
 
-
-
-
-
-
 signUp.addEventListener("click", async (e) => {
   e.preventDefault();
 
@@ -51,7 +49,7 @@ signUp.addEventListener("click", async (e) => {
     !confirmPassword.value.trim()
   ) {
     warningPopUp.classList.add("active");
-    return; 
+    return;
   }
 
   try {
@@ -60,16 +58,18 @@ signUp.addEventListener("click", async (e) => {
       password: password.value.trim(),
       options: {
         data: {
-          name: name.value.trim() 
-        }
-      }
+          name: name.value.trim(),
+        },
+      },
     });
 
     if (error) {
-      console.log("Erreur Supabase :", error.message);
+      // console.log("Erreur Supabase :", error.message);
+      msg.textContent = error.message;
+      errorPopUp.classList.add("active");
     } else {
       console.log("Inscription réussie !", data);
-      popUp.classList.add("active"); 
+      popUp.classList.add("active");
     }
   } catch (error) {
     console.log("Erreur réseau / Inaccessible :", error);
