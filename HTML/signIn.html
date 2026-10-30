@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sign in</title>
+    <link rel="stylesheet" href="../CSS/signIn.css" />
+    <script defer src="../Javascript/signIn.js"></script>
+    <link rel="icon" href="../images/logo.webp">
+  </head>
+  <body>
+    <!-- same interface as sign up -->
+    <div class="container">
+      <a href="../index.html" id="backBtn" class="btn">
+        <svg
+          xmlns="http://w3.org"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <path d="m15 18-6-6 6-6" />
+        </svg>
+        Back
+      </a>
+
+      <div class="left-side">
+        <img src="/images/biryana.webp" alt="" />
+      </div>
+
+      <div class="right-side">
+        <div class="form-container">
+          <h1>Welcome back!</h1>
+          <!-- email -->
+          <input type="email" autocomplete="on" placeholder="Email" />
+          <!-- password -->
+          <input type="password" autocomplete="off" placeholder="Password" />
+          <!-- button -->
+        </div>
+        <button id="signIn">Sign in</button>
+        <p>Don't have account? <a href="signUp.html">Sign Up</a> Here</p>
+
+      </div>
+    </div>
+  </body>
+</html>

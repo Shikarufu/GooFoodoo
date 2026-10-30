@@ -48,8 +48,13 @@ body.fade-in {
   transition: all 0.3s ease-in-out;
 }
 
-.left-side img:hover {
+.left-side img:hover,
+.btn:hover,
+.popUp .okBtn:hover,
+.right-side button:hover,
+.form-container input:hover{
   transform: scale(1.2);
+
 }
 
 .btn {
@@ -62,16 +67,11 @@ body.fade-in {
   width: 5rem;
   text-align: center;
   border-radius: 1rem;
-  transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in;
   display: flex;
   align-items: center;
   color: var(--lead);
   text-decoration: none;
-}
-
-.btn:hover {
-  cursor: pointer;
-  transform: scale(1.2);
 }
 
 /* right side */
@@ -104,6 +104,7 @@ body.fade-in {
   border-radius: 8px;
   font-size: 18px;
   color: #161101;
+  transition: all .3s ease-in;
 }
 
 .form-container input::placeholder {
@@ -181,13 +182,11 @@ input[type="password"]:focus {
   border-radius: 0.5rem;
   color: var(--lead);
   font-size: 1.2rem;
-  transition: all 0.3s ease-in-out;
-}
-
-.right-side button:hover {
-  transform: scale(1.1);
+  transition: all 0.3s ease-in;
   cursor: pointer;
 }
+
+
 
 .right-side p {
   margin-top: 1rem;
@@ -214,7 +213,7 @@ input[type="password"]:focus {
   opacity: 0;
   pointer-events: none;
   visibility: hidden;
-  transition: all 0.4s ease;
+  transition: all 0.4s ease-in;
 }
 
 .popUp p {
@@ -225,12 +224,9 @@ input[type="password"]:focus {
   /* text-decoration: none; */
   color: var(--lead);
 
-  transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in;
 }
 
-.popUp .okBtn:hover {
-  transform: scale(1.1);
-}
 .popUp.active {
   /* display: block; */
   visibility: visible;

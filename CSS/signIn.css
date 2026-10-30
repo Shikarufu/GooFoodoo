@@ -1,0 +1,166 @@
+@import url("https://fonts.googleapis.com/css2?family=Angkor&family=Bricolage+Grotesque:opsz,wght@12..96,200..800&family=Caveat:wght@400..700&family=Comic+Relief:wght@400;700&family=Dosis:wght@200..800&family=Fasthand&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&family=Roboto+Flex:opsz,wght,XOPQ,XTRA,YOPQ,YTDE,YTFI,YTLC,YTUC@8..144,100..1000,96,468,79,-203,738,514,712&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Roboto Flex", sans-serif;
+  /* border: 0.1rem solid greenyellow; */
+}
+/* decalre color variable */
+:root {
+  --lead: #212121;
+  --gold-finger: #f2bd12;
+  --eye-ball: #fffdf7;
+  --hint-yellow: #fcf1cc;
+  --pure-white: #fff;
+}
+
+body {
+  background: var(--eye-ball);
+  opacity: 1;
+  transition: 0.5s;
+}
+
+body.fade-in {
+  opacity: 0;
+}
+
+.container {
+  display: flex;
+  height: 100vh;
+}
+
+.btn{
+  position:fixed; 
+  left: 2%;
+  top: 5%;
+  background:var(--gold-finger);
+  width: 5rem;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: black;
+  border-radius: 1rem;
+  padding:.3rem .3rem .3rem .3rem;
+  transition: all .3s ease-in;
+}
+
+.btn:hover,
+.form-container input:hover,
+.left-side img:hover {
+  transform: scale(1.1);
+}
+
+
+
+.left-side {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: whitesmoke;
+}
+
+.left-side img {
+  width: 70%;
+  filter: drop-shadow(rgba(0, 0, 0, 0.4) 0 10px 10px);
+  transition: all 0.3s ease-in-out;
+}
+
+.right-side {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background: var(--hint-yellow);
+}
+
+.right-side h1 {
+  text-align: center;
+  margin-bottom: 1.2rem;
+  font-size: 3.2rem;
+}
+
+.right-side #signIn{
+  width: 25rem;
+  padding:1rem;
+  background:var(--gold-finger);
+  border-radius: 1rem;
+  font-size:1.2rem;
+  transition:all .3s ease-in;
+  border: none;
+}
+
+.right-side #signIn:hover{
+  cursor:pointer;
+  transform:scale(1.1);
+}
+
+.right-side p {
+  margin-top: 1rem;
+  font-size: 1rem;
+}
+
+.right-side a {
+  color: orange;
+  font-size: 1.1rem;
+}
+
+
+.form-container {
+  width: 500px;
+}
+
+.form-container input {
+  width: 100%;
+  padding: 20px;
+  margin-bottom: 20px;
+  border: none;
+  border-radius: 8px;
+  font-size: 18px;
+  color: #161101;
+  transition:all .3s ease-in;
+}
+
+.form-container input::placeholder {
+  color: black;
+}
+
+.form-container input:focus{
+  outline: none;
+}
+
+
+/* responsive */
+@media  screen and (max-width:966px) {
+  .container{
+    flex-direction: column;
+  }
+  
+  .btn{
+    padding:0.7rem;
+  }
+
+  .form-container{
+    width: 90%;
+  }
+
+  .right-side h1{
+    font-size: 2.5rem;
+  }
+
+  .right-side #signIn{
+    width: 20rem;
+    padding:.7rem;
+  }
+
+  .right-side #signIn:hover,
+  .right-side input:hover,
+  .left-side img:hover{
+    transform:none;
+  }
+  
+
+}
