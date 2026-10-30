@@ -68,6 +68,10 @@ body.fade-in {
   transition: all 0.3s ease-in-out;
 }
 
+.left-side img:hover{
+  filter: drop-shadow( var(--gold-finger) 0px 0px 10px);
+}
+
 .right-side {
   flex: 1;
   display: flex;
