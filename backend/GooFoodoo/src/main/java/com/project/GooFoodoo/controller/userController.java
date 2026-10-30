@@ -13,19 +13,19 @@ public class userController {
     @Autowired
     userRepository userRepository;
 
-    //create
-//    @PostMapping("/register")
-//    public user registerUser(@RequestBody user user){
-//        return userRepository.save(user);
-//    }
-    @PostMapping("/login")
-    public ResponseEntity<?> loginUser(@RequestBody user loginRequest) {
-        user user = userRepository.findByEmail(loginRequest.getEmail());
-        if (user != null && user.getPassword().equals(loginRequest.getPassword())) {
-            return ResponseEntity.ok(user);
-        } else {
-            return ResponseEntity.status(401).body("Email ou mot de passe incorrect");
-        }
+//    create
+    @PostMapping("/register")
+    public user registerUser(@RequestBody user user){
+        return userRepository.save(user);
     }
+//    @PostMapping("/login")
+//    public ResponseEntity<?> loginUser(@RequestBody user loginRequest) {
+//        user user = userRepository.findByEmail(loginRequest.getEmail());
+//        if (user != null && user.getPassword().equals(loginRequest.getPassword())) {
+//            return ResponseEntity.ok(user);
+//        } else {
+//            return ResponseEntity.status(401).body("Email ou mot de passe incorrect");
+//        }
+//    }
 
 }
