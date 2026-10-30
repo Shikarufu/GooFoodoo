@@ -223,7 +223,7 @@ input[type="password"]:focus {
 .popUp .okBtn {
   /* text-decoration: none; */
   color: var(--lead);
-
+  
   transition: all 0.3s ease-in;
 }
 

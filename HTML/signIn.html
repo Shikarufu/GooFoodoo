@@ -6,7 +6,7 @@
     <title>Sign in</title>
     <link rel="stylesheet" href="../CSS/signIn.css" />
     <script defer src="../Javascript/signIn.js"></script>
-    <link rel="icon" href="../images/logo.webp">
+    <link rel="icon" href="../images/logo.webp" />
   </head>
   <body>
     <!-- same interface as sign up -->
@@ -42,7 +42,17 @@
           <!-- button -->
         </div>
         <button id="signIn">Sign in</button>
-        <p>Don't have account? <a href="signUp.html" id="signInPage">Sign Up</a> Here</p>
+        <p>
+          Don't have account?
+          <a href="signUp.html" id="signInPage">Sign Up</a> Here
+        </p>
+
+        <div class="popUp" id="warningPopUp">
+          <h3>⚠️ Warning!</h3>
+          <p style="margin-bottom: 0.2rem">Please try again!</p>
+          <p style="margin-top: 0.2rem">Input can not be empty!</p>
+          <button class="okBtn okBtnError">Okay</button>
+        </div>
 
       </div>
     </div>
