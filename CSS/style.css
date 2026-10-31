@@ -5,7 +5,7 @@
   padding: 0;
   box-sizing: border-box;
   font-family: "Roboto Flex", sans-serif;
-  /* border:.1rem solid greenyellow; */
+  border:.1rem solid greenyellow;
 }
 /* decalre color variable */
 :root {
@@ -328,6 +328,128 @@ h4 {
 /* nice */
 .cart-list::-webkit-scrollbar{
   width: 0;
+}
+
+#select-category,
+::picker(select){
+  /* background:var(--gold-finger);
+  width: 5rem;
+  padding:0.5rem;
+  border-radius:1rem;
+  margin:1rem; */
+  appearance: base-select;
+}
+#select-category{
+  flex: 1;
+}
+
+#select-category{
+  background:var(--hint-yellow);
+  padding: .2rem;
+  transition: .4s;
+}
+
+#select-category:hover,
+#select-category:focus{
+  background:#f4e4ac;
+  cursor:pointer;
+}
+
+#select-category::picker-icon{
+  transition: .5s rotate;
+}
+
+#select-category:open::picker-icon{
+  rotate: 180deg;
+}
+
+::picker(select){
+  border:none;
+  border-radius: 1rem;
+  background:var(--hint-yellow);
+  padding: .2rem;
+}
+
+/* option */
+#select-category option{
+  display: flex;
+  justify-content: flex-start;
+  gap: 10px;
+  padding: .2rem;
+  transition: .4s;
+
+}
+
+#select-category option:first-of-type{
+  border-radius: 8px 8px 0 0;
+}
+
+#select-category option:last-of-type{
+  border-radius: 0 0 8px 8px;
+}
+
+#select-category option:not(option:last-of-type) {
+  border-bottom: none;
+}
+
+#select-category option .icon {
+  font-size: 1.6rem;
+  text-box: trim-both cap alphabetic;
+}
+
+selectedcontent .icon {
+  display: none;
+}
+
+#select-category option:checked {
+  font-weight: bold;
+}
+
+#select-category option::checkmark {
+  order: 1;
+  margin-left: auto;
+  content: "✅";
+}
+
+::picker(select) {
+  opacity: 0;
+  transition: all 0.4s allow-discrete;
+}
+:open::picker(select) {
+  opacity: 1;
+}
+@starting-style {
+  :open::picker(select) {
+    opacity: 0;
+  }
+}
+::picker(select) {
+  top: calc(anchor(bottom) + 1px);
+  left: anchor(10%);
+}
+
+#select-category option:hover{
+  cursor: pointer;
+  background:var(--pure-white);
+}
+
+
+#category-form{
+  background:var(--gold-finger);
+  padding:.4rem;
+  border-radius: 1rem;
+  width: 30%;
+}
+
+#category-form p{
+  display: flex;
+  gap: 20px;
+  color: black;
+}
+
+#category-form label{
+  width: fit-content;
+  align-self: center;
 }
 
 
@@ -718,6 +840,16 @@ input[type="email"]:focus{
 
   .order-card .btn{
     padding: 0.8rem 1.5rem;
+  }
+
+  #category-form{
+    width: 100%;
+    padding: .2rem;
+  }
+
+  #category-form label,
+  #category-form p{
+    font-size:1rem;
   }
 
   /* section 4 */
