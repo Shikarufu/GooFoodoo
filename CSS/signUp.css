@@ -57,6 +57,7 @@ body.fade-in {
 
 }
 
+/* back button */
 .btn {
   position: fixed;
   top: 5%;
@@ -180,7 +181,7 @@ input[type="password"]:focus {
   height: 2.5rem;
   margin-top: 1rem;
   border-radius: 0.5rem;
-  color: var(--lead);
+  color: black;
   font-size: 1.2rem;
   transition: all 0.3s ease-in;
   cursor: pointer;

@@ -91,6 +91,7 @@ body.fade-in {
 .right-side #signIn{
   width: 25rem;
   padding:1rem;
+  color: black;
   background:var(--gold-finger);
   border-radius: 1rem;
   font-size:1.2rem;
