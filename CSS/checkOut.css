@@ -32,10 +32,32 @@ body.fade-in {
   opacity: 0;
 }
 
+.btn{
+  position:fixed; 
+  left: 2%;
+  top: 5%;
+  background:var(--hint-yellow);
+  width: 5rem;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: black;
+  border-radius: 1rem;
+  padding:.3rem .3rem .3rem .3rem;
+  transition: all .3s ease-in;
+}
+
+.btn:hover{
+  transform: scale(1.1);
+}
+
 .checkout-container {
   width: 900px;
   background: var(--hint-yellow);
   border-radius: 1rem;
+  box-shadow:
+    rgba(0, 0, 0, 0.1) 0px 8px 8px,
+    rgba(0, 0, 0, 0.1) 0px 8px 8px;
 }
 
 /* steps bar */
@@ -66,6 +88,78 @@ body.fade-in {
 }
 
 
+/* payment method */
+.payment-wrapper{
+  display: flex;
+  gap: 100px;
+  margin-top: 1rem;
+}
+
+/* left */
+.method{
+  width: 180px;
+  height: 110px;
+
+  border: 2px solid #ddd;
+
+  display: flex;
+  justify-content: center;
+  align-items:center;
+
+  cursor: pointer;
+  margin-bottom: 20px;
+  margin-left: 10px;
+  
+}
+
+.method.active{
+  border-color:var(--lead);
+}
+
+
+/* right */
+.payment-form{
+  flex:1;
+}
+
+.payment-form input{
+  width: 100%;
+  padding: 15px;
+  margin-top: 8px;
+  margin-bottom: 20px;
+  border: none;
+  background: #f5f5f5;
+}
+
+.payment-form .small-input{
+  display: flex;
+  gap: 20px;
+}
+
+.confirm-btn{
+  background:var(--gold-finger);
+  font-size: 1.1rem;
+  padding: 1rem;
+  border-radius: 2rem;
+  /* width: 100%; */
+  display: flex;
+  justify-self: center;
+  cursor: pointer;
+  margin-bottom: 1.6rem;
+  transition: all .3s ease-in;
+  border: none;
+}
+
+.confirm-btn:hover{
+  transform:scale(1.1);
+}
+
+.confirm-btn:active{
+  opacity: .6;
+}
+
+
+
 /* responsive */
 @media screen and (max-width: 966px){
   .checkout-container{
@@ -78,6 +172,25 @@ body.fade-in {
   
   .steps .step-active p{
     font-size: .8rem;
+  }
+
+  /* payment */
+  .payment-wrapper{
+    gap: 10px;
+  }
+
+  .method{
+    width: 140px;
+    height: 50px;
+  }
+
+  .confirm-btn{
+    font-size: .9rem;
+  }
+
+  .confirm-btn:hover,
+  .btn:hover{
+    transform: none;
   }
   
 }

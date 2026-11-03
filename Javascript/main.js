@@ -265,3 +265,15 @@ signIn.forEach((sign) => {
     }, 500);
   });
 });
+
+const checkBtn=document.getElementById("checkBtn");
+
+checkBtn.addEventListener("click",(e)=>{
+  e.preventDefault();
+
+  document.body.classList.add("fade-out");
+  setTimeout(()=>{
+    window.location.href="HTML/checkOut.html";
+  },500); 
+
+});

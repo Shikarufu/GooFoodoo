@@ -6,8 +6,25 @@
     <title>Payment</title>
     <link rel="icon" href="../images/logo.webp" />
     <link rel="stylesheet" href="../CSS/checkOut.css" />
+    <script defer src="../Javascript/checkOut.js"></script>
   </head>
   <body>
+    <a href="../index.html" id="backBtn" class="btn">
+      <svg
+        xmlns="http://w3.org"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <path d="m15 18-6-6 6-6" />
+      </svg>
+      Back
+    </a>
     <div class="checkout-container">
       <!-- step bar -->
       <div class="steps">
@@ -22,18 +39,50 @@
           <p>Delivery Address</p>
         </div>
         <div class="line"></div>
-        
+
         <div class="step-active">
           <span>💳</span>
           <p>Payment</p>
         </div>
         <div class="line"></div>
-        
+
         <div class="step-active">
           <span>📄</span>
           <p>Preview Order</p>
         </div>
-        
+      </div>
+
+      <!-- Payment Method -->
+      <div class="payment-wrapper">
+        <!-- left -->
+        <div class="payment-methods">
+          <div class="method active">VISA</div>
+
+          <div class="method">PayPal</div>
+        </div>
+
+        <!-- right -->
+        <div class="payment-form">
+          <label for="">Card Number</label>
+          <input type="text" placeholder="1234 5678 9012 3456" />
+
+          <div class="small-input">
+            <div>
+              <label for="">Expired Date</label>
+              <input type="text" placeholder="07/26" />
+            </div>
+
+            <div>
+              <label for="">CVV</label>
+              <input type="text" placeholder="123" />
+            </div>
+          </div>
+
+          <label for="">Card Holder name</label>
+          <input type="text" placeholder="Name" />
+
+          <button class="confirm-btn">Confirm Payment</button>
+        </div>
       </div>
     </div>
   </body>
