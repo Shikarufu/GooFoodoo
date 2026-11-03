@@ -14,18 +14,22 @@
   --eye-ball: #fffdf7;
   --hint-yellow: #fcf1cc;
   --pure-white: #fff;
+  --gold-dark: #e0a800;
+  --gray: #6b7280;
+  --border: #e5e7eb;
+  --cream: #fffdf7;
 }
 
 body {
   background: var(--eye-ball);
   opacity: 1;
-  transition: 0.5s;
+  transition:opacity 0.4s ease;
   min-height: 100vh;
-  background: linear-gradient(to right, var(--gold-finger), #f5cd4b);
-
+  background: linear-gradient(135deg, var(--gold-finger) 0%, #f5cd4b 50%, #f5cd4b 100%);
+  padding: 2rem 1rem;
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
 }
 
 body.fade-in {
@@ -38,27 +42,34 @@ body.fade-in {
   top: 5%;
   background:var(--hint-yellow);
   width: 5rem;
+  color: var(--lead);
   display: flex;
   align-items: center;
   text-decoration: none;
   color: black;
   border-radius: 1rem;
-  padding:.3rem .3rem .3rem .3rem;
+  padding:.3rem .6rem .3rem .3rem;
   transition: all .3s ease-in;
+  z-index: 100;
+  font-weight: 600;
+  gap: .5rem;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
 }
 
 .btn:hover{
   transform: scale(1.1);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.15);
 }
 
+/* main */
 .checkout-container {
-  width: 900px;
-  background: var(--hint-yellow);
+  width: 100%;
+  max-width: 920px;
+  background: var(--cream);
   border-radius: 1rem;
-  box-shadow:
-    rgba(0, 0, 0, 0.1) 0px 8px 8px,
-    rgba(0, 0, 0, 0.1) 0px 8px 8px;
+  box-shadow:0 20px 40px rgba(0, 0, 0, 0.12);
   overflow: hidden;
+  margin-top: 1rem;
 }
 
 /* steps bar */
