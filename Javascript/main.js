@@ -72,7 +72,7 @@ selectCategory.addEventListener("change", () => {
 });
 
 let productList = [];
-let cartProduct = [];
+let cartProduct = JSON.parse(localStorage.getItem("cartProduct")) || [];
 
 const updateTotals = () => {
   let totalPrice = 0;
@@ -173,6 +173,7 @@ const addToCart = (product) => {
   }
 
   cartProduct.push(product);
+  localStorage.setItem("cartProduct",JSON.stringify(cartProduct));
 
   let quantity = 1;
   let price = parseFloat(product.price.replace("$", ""));
@@ -228,6 +229,8 @@ const addToCart = (product) => {
       setTimeout(() => {
         cartItem.remove();
         cartProduct = cartProduct.filter((item) => item.id !== product.id);
+        localStorage.setItem("cartProduct",JSON.stringify(cartProduct));
+
         updateTotals();
       }, 300);
     }

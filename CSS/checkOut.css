@@ -58,6 +58,7 @@ body.fade-in {
   box-shadow:
     rgba(0, 0, 0, 0.1) 0px 8px 8px,
     rgba(0, 0, 0, 0.1) 0px 8px 8px;
+  overflow: hidden;
 }
 
 /* steps bar */
@@ -68,16 +69,16 @@ body.fade-in {
   padding: .8rem;
 }
 
-.steps .step-active{
+.steps .step{
   text-align: center;
   
 }
 
-.steps .step-active span{
+.steps .step span{
   font-size: 1.7rem;
 }
 
-.steps .step-active p{
+.steps .step p{
   font-size: 1.1rem;
 }
 
@@ -88,15 +89,46 @@ body.fade-in {
 }
 
 
+.page{
+  display: none;
+  opacity: 0;
+  transform: translateX(50px);
+  transition: .4s ease;
+}
+
+.page.active{
+  display: block;
+  opacity: 1;
+  transform: translateX(0);
+  animation: slideIn .4s ease;
+}
+
+/* keyframe for animation */
+@keyframes slideIn{
+  from{
+    opacity: 0;
+    transform:translateX(50px);
+  }
+
+  to{
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+
+
+
+
 /* payment method */
-.payment-wrapper{
+/* .payment-wrapper{
   display: flex;
   gap: 100px;
   margin-top: 1rem;
-}
+} */
 
 /* left */
-.method{
+/* .method{
   width: 180px;
   height: 110px;
 
@@ -114,11 +146,11 @@ body.fade-in {
 
 .method.active{
   border-color:var(--lead);
-}
+} */
 
 
 /* right */
-.payment-form{
+/* .payment-form{
   flex:1;
 }
 
@@ -139,10 +171,10 @@ body.fade-in {
 .confirm-btn{
   background:var(--gold-finger);
   font-size: 1.1rem;
-  padding: 1rem;
-  border-radius: 2rem;
+  padding: 1rem; */
+  /* border-radius: 2rem;
   /* width: 100%; */
-  display: flex;
+  /* display: flex;
   justify-self: center;
   cursor: pointer;
   margin-bottom: 1.6rem;
@@ -156,7 +188,9 @@ body.fade-in {
 
 .confirm-btn:active{
   opacity: .6;
-}
+}  */
+
+
 
 
 

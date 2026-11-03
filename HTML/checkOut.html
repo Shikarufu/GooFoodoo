@@ -28,62 +28,47 @@
     <div class="checkout-container">
       <!-- step bar -->
       <div class="steps">
-        <div class="step-active">
+        <div class="step active" data-step="0">
           <span>🛒</span>
           <p>Shopping Cart</p>
         </div>
         <div class="line"></div>
 
-        <div class="step-active">
+        <div class="step " data-step="1">
           <span>📍</span>
           <p>Delivery Address</p>
         </div>
         <div class="line"></div>
 
-        <div class="step-active">
+        <div class="step" data-step="2">
           <span>💳</span>
           <p>Payment</p>
         </div>
         <div class="line"></div>
 
-        <div class="step-active">
+        <div class="step" data-set="3">
           <span>📄</span>
           <p>Preview Order</p>
         </div>
       </div>
 
-      <!-- Payment Method -->
-      <div class="payment-wrapper">
-        <!-- left -->
-        <div class="payment-methods">
-          <div class="method active">VISA</div>
-
-          <div class="method">PayPal</div>
-        </div>
-
-        <!-- right -->
-        <div class="payment-form">
-          <label for="">Card Number</label>
-          <input type="text" placeholder="1234 5678 9012 3456" />
-
-          <div class="small-input">
-            <div>
-              <label for="">Expired Date</label>
-              <input type="text" placeholder="07/26" />
-            </div>
-
-            <div>
-              <label for="">CVV</label>
-              <input type="text" placeholder="123" />
-            </div>
-          </div>
-
-          <label for="">Card Holder name</label>
-          <input type="text" placeholder="Name" />
-
-          <button class="confirm-btn">Confirm Payment</button>
-        </div>
-      </div>
-    </div>
+      <!-- pages -->
+       <div class="page active" id="shopPage">
+          Shopping page 
+          <span id="msg"></span>
+          <button onclick="gotoStep(1)">continue</button>
+       </div>
+       <div class="page " id="deliveryPage">
+          Delivery Address
+          <button onclick="gotoStep(2)">continue</button>
+       </div>
+       <div class="page " id="paymentPage">
+          Payment Page
+          <button onclick="gotoStep(3)">continue</button>
+       </div>
+       <div class="page " id="previewPage">
+          Receipt Content
+          <!-- <button onclick="generateReceipt()">receipt</button> -->
+       </div>
   </body>
 </html>
