@@ -5,7 +5,7 @@
   padding: 0;
   box-sizing: border-box;
   font-family: "Roboto Flex", sans-serif;
-  border: 0.1rem solid greenyellow;
+  /* border: 0.1rem solid greenyellow; */
 }
 /* decalre color variable */
 :root {
@@ -29,7 +29,7 @@ body {
   padding: 2rem 1rem;
   display: flex;
   justify-content: center;
-  align-items: flex-start;
+  align-items: center;
 }
 
 body.fade-in {
@@ -364,6 +364,111 @@ body.fade-in {
 }
 
 
+/* preview */
+.preview-layout{
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.preview-section{
+  background:var(--pure-white);
+  padding: 1.2rem;
+  border-radius: 1rem;
+}
+
+.preview-section h3{
+  font-size: 1rem;
+  margin-bottom: .6rem;
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+}
+
+.preview-total{
+  background:var(--hint-yellow);
+  padding: 1.2rem 1.5rem;
+  border-radius: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1.3rem;
+}
+
+.empty-cart{
+  text-align: center;
+  padding: 3rem 1rem;
+  color: var(--gray);
+}
+
+.empty-cart i{
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  opacity: .5;
+}
+
+
+
+/* button section */
+.btn-row{
+  display: flex;
+  justify-content: space-between;
+  gap: 1.2rem;
+  margin-top: 1rem;
+}
+
+.nextBtn button,
+.confirm-btn button{
+  background:var(--gold-finger);
+  color: var(--lead);
+  border: none;
+  padding: .9rem 1.8rem;
+  font-size: 1rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;  
+  gap: .5rem;
+  border-radius: 1rem;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(242, 189, 18, 0.3);
+  transition: all .3s ease;
+}
+
+.prevBtn button i{
+  margin-right: .5rem;
+}
+
+.nextBtn button i{
+  margin-left: .5rem;
+}
+
+.nextBtn button:hover,
+.confirm-btn button:hover{
+  background:var(--gold-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(242, 189, 18, 0.4);
+}
+
+.prevBtn button{
+  background:transparent;
+  border: 2px solid var(--border);
+  font-weight: 600;
+  color: var(--lead);
+  padding: .9rem 1.5rem;
+  border-radius: 2rem;
+  transition: all .25s;
+  cursor: pointer;
+  gap: .5rem;
+  display: flex;
+  align-items: center;
+}
+
+.prevBtn button:hover{
+  border-color: var(--hint-yellow);
+  background:#f4bc03;
+  transform:translateY(2px)
+}
+
 
 
 
@@ -442,36 +547,41 @@ body.fade-in {
 
 
 /* responsive */
-@media screen and (max-width: 966px){
-  .checkout-container{
-    width: 440px;
+@media (max-width: 768px) {
+  .cart-layout {
+    grid-template-columns: 1fr;
+  }
+  .steps {
+    padding: 1rem;
   }
 
-  .steps .step-active span{
-    font-size: .9rem;
+
+  .step .step-icon p {
+    font-size: 0.7rem;
   }
-  
-  .steps .step-active p{
+  .step-icon {
     font-size: .8rem;
-  }
-
-  /* payment */
-  .payment-wrapper{
-    gap: 10px;
-  }
-
-  .method{
-    width: 140px;
+    width: 55px;
     height: 50px;
   }
 
-  .confirm-btn{
-    font-size: .9rem;
+  .nextBtn button,
+  .confirm-btn button,
+  .prevBtn button{
+    padding: .7rem .5rem;
   }
 
-  .confirm-btn:hover,
-  .btn:hover{
-    transform: none;
+  .payment-wrapper {
+    flex-direction: column;
   }
-  
+  .payment-methods {
+    flex-direction: row;
+    justify-content: center;
+  }
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+  .page {
+    padding: 1.25rem;
+  }
 }
