@@ -80,7 +80,47 @@ body.fade-in {
   padding: .8rem;
 }
 
-.steps .step{
+.step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.4rem;
+  cursor: pointer;
+  opacity: 0.45;
+  transition: all 0.3s ease;
+}
+
+.step.active{
+  opacity: 1;
+}
+
+.step.completed .step-icon{
+  background:var(--gold-finger);
+  color: var(--lead);
+}
+
+.step-icon{
+  width: 80px;
+  height: 50px;
+  border-radius: 1.2rem;
+  background:#f3f4f6;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  font-size: 1.2rem;
+  color: var(--gray);
+  transition: all .4s ease;
+}
+
+.step.active .step-icon{
+  background:var(--gold-finger);
+  color: var(--lead);
+  box-shadow: 0 4px 12px rgba(241,189,18,0.4);
+  transform: scale(1.08);
+}
+
+/* .steps .step{
   text-align: center;
   
 }
@@ -88,37 +128,39 @@ body.fade-in {
 .steps .step span{
   font-size: 1.7rem;
 }
-
+*/
 .steps .step p{
-  font-size: 1.1rem;
-}
+  font-size: .85rem;
+  font-weight: 600;
+  color: var(--lead);
+} 
 
 .line{
   flex:1;
   height: 2px;
-  background:#ddd;
+  background:#e5e7eb;
+  margin:0 0.5rem;
+  border-radius: 2px;
+  position:relative;
+  top: -12px;
 }
 
-
+/* pages */
 .page{
   display: none;
-  opacity: 0;
-  transform: translateX(50px);
-  transition: .4s ease;
+  padding: 2rem;
+  animation: fadeIn 0.4s ease;
 }
 
 .page.active{
   display: block;
-  opacity: 1;
-  transform: translateX(0);
-  animation: slideIn .4s ease;
 }
 
 /* keyframe for animation */
-@keyframes slideIn{
+@keyframes fadeIn{
   from{
     opacity: 0;
-    transform:translateX(50px);
+    transform:translateY(10px);
   }
 
   to{
