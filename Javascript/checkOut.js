@@ -46,7 +46,7 @@ backBtn.addEventListener("click", (e) => {
 function renderCart(){
   // El=element
   const container=document.getElementById("cartItems"),
-        subtotalEl=document.getElementById("subTotal"),
+        subtotalEl=document.getElementById("subtotal"),
         totalEl=document.getElementById("total");
   
   if(cartProduct.length === 0){
@@ -179,6 +179,32 @@ function updatePreview(){
 
 
     // payment
+    const activeMethod=document.querySelector(".method.active");
+    document.getElementById("previewPayment").textContent=activeMethod ? activeMethod.querySelector("span").textContent : "card";
 
   });
 }
+
+// payment click
+document.querySelectorAll(".method").forEach((m)=>{
+  m.addEventListener("click",()=>{
+    document.querySelectorAll(".method").forEach((x)=>x.classList.remove("active"));
+    m.classList.add("active");
+  });
+});
+
+// place order
+document.getElementById("placeOrderBtn").addEventListener("click",()=>{
+  if(cartProduct.length === 0){
+    console.log("cart is empty");
+    return;
+  }
+
+  localStorage.removeItem("cartProduct");
+  alert("Order successfully");
+  window.location.href="../index.html";
+});
+
+
+// 始めましょう
+renderCart();
