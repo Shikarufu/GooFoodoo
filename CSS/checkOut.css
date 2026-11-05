@@ -99,13 +99,13 @@ body.fade-in {
   color: var(--lead);
 }
 
-.step-icon{
+.step-icon{   
   width: 80px;
   height: 50px;
   border-radius: 1.2rem;
   background:#f3f4f6;
   display: flex;
-  justify-content: center;
+  justify-content: center; 
   flex-direction: column;
   align-items: center;
   font-size: 1.2rem;
@@ -160,7 +160,7 @@ body.fade-in {
 @keyframes fadeIn{
   from{
     opacity: 0;
-    transform:translateY(10px);
+    transform:translateX(20px);
   }
 
   to{
@@ -554,7 +554,6 @@ body.fade-in {
   .steps {
     padding: 1rem;
   }
-
 
   .step .step-icon p {
     font-size: 0.7rem;
