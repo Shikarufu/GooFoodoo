@@ -565,6 +565,11 @@ body.fade-in {
     height: 50px;
   }
 
+  .cart-item,
+  .preview-section{
+    box-shadow: 0 2px 4px rgba(241,189,18,0.4);
+  }
+
   .nextBtn button,
   .confirm-btn button,
   .prevBtn button{
