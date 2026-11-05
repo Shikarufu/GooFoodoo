@@ -90,30 +90,68 @@ function renderCart(){
   total.textContent=`$${(subtotal+deliveryFee).toFixed(2)}`;
 }
 
+function changeQty(index,delta){
+  if(!cartProduct[index].quantity){
+    cartProduct[index].quantity=1;
+  }
+
+  cartProduct[index].quantity += delta;
+
+  if(cartProduct[index].quantity < 1){
+    cartProduct.splice(index,1);
+  }
+
+  localStorage.setItem("cartProduct",JSON.stringify(cartProduct));
+  renderCart();
+}
+
+
 
 
 
 
 
 function gotoStep(step){
-  pages.forEach(page=>
-    page.classList.remove("active")
-  );
-  
-  steps.forEach(stepE=>
-    stepE.classList.remove("active")
-  );
+  pages.forEach((p)=>p.classList.remove("active"));
+
+  steps.forEach((s)=>s.classList.remove("active","completed"));
 
   pages[step].classList.add("active");
 
-  // loop
   for(let i=0;i<=step;i++){
-    steps[i].classList.add("active");
-  }
+    steps[i].classList.add(i === step ? "active" : "completed");
+  } 
+
   currentStep=step;
+
+  if(step === 3){
+    updatePreview();
+  }
+
+
+  // pages.forEach(page=>
+  //   page.classList.remove("active")
+  // );
+  
+  // steps.forEach(stepE=>
+  //   stepE.classList.remove("active")
+  // );
+
+  // pages[step].classList.add("active");
+
+  // // loop
+  // for(let i=0;i<=step;i++){
+  //   steps[i].classList.add("active");
+  // }
+  // currentStep=step;
 }
 
-console.log(cartProduct);
-
-localStorage.removeItem("cartProduct");
 // cartProduct.length=0;
+
+
+// preview
+function updatePreview(){
+  const previewItems=document.getElementById("previewItems");
+  let html="";
+  let total=0;
+}
