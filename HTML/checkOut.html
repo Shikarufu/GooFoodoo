@@ -160,17 +160,17 @@
         <h2 class="page-title">Payment Method</h2>
         <div class="payment-wrapper">
           <div class="payment-methods">
-            <div class="method active" data-method="card">
+            <div class="method active" data-method="Card">
               <i class="fa-brands fa-cc-visa"></i>
               <p>Card</p>
             </div>
 
-            <div class="method" data-method="payPal">
+            <div class="method" data-method="PayPal">
               <i class="fa-brands fa-paypal"></i>
               <p>Paypal</p>
             </div>
 
-            <div class="method" data-method="cash">
+            <div class="method" data-method="Cash">
               <i class="fa-solid fa-money-bill-wave"></i>
               <p>Cash</p>
             </div>
@@ -241,6 +241,7 @@
     </div>
 
     <!-- pop up msg -->
+     <!-- success -->
     <div class="success-modal" id="successModal">
       <div class="success-content">
         <div class="checkmark-circle">
@@ -250,6 +251,20 @@
         <h2>Ordered Successfully</h2>
         <p>Thanks you for choosing GooFoodoo💖</p>
         <button class="success-btn" id="successBtn">Okay</button>
+      </div>
+    </div>
+
+    <!-- unsuccess -->
+    <div class="success-modal" id="unsuccessModal">
+      <div class="success-content">
+        <div class="crossmark-circle">
+          <span class="cross-line line1"></span>
+          <span class="cross-line line2"></span>
+        </div>
+
+        <h2>Your cart is empty</h2>
+        <p>Please select food and drink</p>
+        <button class="success-btn" id="unsuccessBtn">Okay</button>
       </div>
     </div>
   </body>

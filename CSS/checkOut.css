@@ -453,10 +453,10 @@ body.fade-in {
 .prevBtn button {
   background: transparent;
   border: 2px solid var(--border);
-  font-weight: 600;
+  font-weight: 700;
   color: var(--lead);
   padding: 0.9rem 1.5rem;
-  border-radius: 2rem;
+  border-radius: 1rem;
   transition: all 0.25s;
   cursor: pointer;
   gap: 0.5rem;
@@ -496,6 +496,7 @@ body.fade-in {
 .success-content {
   background: white;
   padding: 2.5rem 2rem;
+  border-radius: 2rem;
   text-align: center;
   max-width: 350px;
   width: 90%;
@@ -509,8 +510,6 @@ body.fade-in {
 .success-modal.show .success-content {
   transform: scale(1);
 }
-
-
 
 .success-content h2 {
   margin: 1.2rem 0 0.5rem;
@@ -543,9 +542,8 @@ body.fade-in {
   width: 18px;
   height: 36px;
 
-  border-right: 5px solid #212121;
-  border-bottom: 5px solid #212121;
-
+  border-right: 5px solid #ffffff;
+  border-bottom: 5px solid #ffffff;
   opacity: 0;
 
   transform: rotate(45deg) scale(0);
@@ -561,6 +559,50 @@ body.fade-in {
   animation: popCircle 0.5s ease-in-out;
 }
 
+/* unsuccess - cross animation*/
+.crossmark-circle {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: #f21612;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  margin: 0 auto;
+}
+
+.cross-line {
+  position: absolute;
+  width: 40px;
+  height: 5px;
+  background: white;
+  border-radius: 5px;
+  transform: scaleX(0);
+  /* transform-origin: center; */
+}
+
+.line1 {
+  transform: rotate(45deg) scaleX(0);
+}
+
+.line2 {
+  transform: rotate(-45deg) scaleX(0);
+}
+
+.success-modal.show .crossmark-circle {
+  animation: popCircle 0.5s ease-out;
+}
+
+.success-modal.show .line1 {
+  animation: drawLine1 0.35s ease 0.3s forwards;
+}
+
+.success-modal.show .line2 {
+  animation: drawLine2 0.35s ease 0.3s forwards;
+
+}
 
 @keyframes popCircle {
   0% {
@@ -598,6 +640,24 @@ body.fade-in {
 
   100% {
     transform: rotate(45deg) scale(1);
+  }
+}
+
+@keyframes drawLine1 {
+  from {
+    transform: rotate(45deg) scaleX(0);
+  }
+  to {
+    transform: rotate(45deg) scaleX(1.4);
+  }
+}
+
+@keyframes drawLine2 {
+  from {
+    transform: rotate(-45deg) scaleX(0);
+  }
+  to {
+    transform: rotate(-45deg) scaleX(1.4);
   }
 }
 
@@ -760,6 +820,16 @@ body.fade-in {
   .confirm-btn button,
   .prevBtn button {
     padding: 0.7rem 0.5rem;
+  }
+
+  .btn:hover,
+  .cart-item:hover,
+  .qty-btn:hover,
+  .nextBtn button:hover,
+  .confirm-btn button:hover,
+  .prevBtn button:hover,
+  .success-btn:hover{
+    transform: none;
   }
 
   .payment-wrapper {

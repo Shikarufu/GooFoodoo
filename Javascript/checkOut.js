@@ -6,7 +6,7 @@ const methods = document.querySelectorAll(".method"),
   steps = document.querySelectorAll(".step");
 
 let currentStep = 0,
-  selectedPayment = "card";
+  selectedPayment = "Card";
 
 // load cart from storage
 let cartProduct = JSON.parse(localStorage.getItem("cartProduct")) || [];
@@ -144,7 +144,8 @@ function gotoStep(step) {
 
 // preview
 function updatePreview() {
-  const previewItems = document.getElementById("previewItems");
+  const previewItems = document.getElementById("previewItems"),
+        previewAddress=document.getElementById("previewAddress");
   let html = "";
   let total = 0;
 
@@ -166,10 +167,10 @@ function updatePreview() {
     `$${(total + deliveryFee).toFixed(2)}`;
 
   // address
-  const fullName = document.getElementById("fullName").value || "-",
+  const fullName = document.getElementById("fullName").value || "No address",
     street = document.getElementById("street").value || "",
     city = document.getElementById("city").value || "";
-  document.getElementById("previewAddress").textContent =
+  previewAddress.textContent =
     `${fullName}, ${street}, ${city}`;
 
   // payment
@@ -186,24 +187,38 @@ document.querySelectorAll(".method").forEach((m) => {
 
     m.classList.add("active");
 
-    selectedPayment = m.querySelector("span")?.textContent || m.dataset.method || "card";
+    selectedPayment = m.querySelector("span")?.textContent || m.dataset.method || "Card";
   });
 });
 
-// place order
+// place order success
 document.getElementById("placeOrderBtn").addEventListener("click", () => {
   if (cartProduct.length === 0) {
-    console.log("cart is empty");
+    unsuccessModal.classList.add("show")
     return;
   }
-  
+
   localStorage.removeItem("cartProduct");
   const modal=document.getElementById("successModal");
   modal.classList.add("show");
 });
+const unsuccessModal=document.getElementById("unsuccessModal");
 const successModal=document.getElementById("successModal");
+// success
 document.getElementById("successBtn").addEventListener("click",()=>{
   successModal.classList.remove("show");
+
+  document.body.classList.add("fade-in");
+  setTimeout(() => {
+    window.location.href = "../index.html";
+  }, 500);
+});
+
+
+// unsuccess-  This show when it error,empty cart
+
+document.getElementById("unsuccessBtn").addEventListener("click",()=>{
+  unsuccessModal.classList.remove("show");
 
   document.body.classList.add("fade-in");
   setTimeout(() => {
