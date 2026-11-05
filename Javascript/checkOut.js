@@ -57,8 +57,8 @@ function renderCart(){
         <p>Go to add some Food or Drink</p>
       </div>
     `;
-    subtotal.textContent="$0.00";
-    total.textContent="$0.00";
+    subtotalEl.textContent="$0.00";
+    totalEl.textContent="$0.00";
     return;
   }
 
@@ -154,4 +154,31 @@ function updatePreview(){
   const previewItems=document.getElementById("previewItems");
   let html="";
   let total=0;
+
+  cartProduct.forEach((item)=>{
+    const price=parseFloat(item.price.replace("$",""));
+    // check falsy value
+    const qty = quantity || 1;
+    total += price*qty;
+
+    html += `
+      <div style="display:flex; justify-content:space-between; margin-bottom:.4rem;">
+        <span>$${item.name} x ${qty}</span>
+        <span>$${(price * qty).toFixed(2)}</span>
+      </div>
+    `;
+
+    previewItems.innerHTML=html || "<p>No items</p>";
+    document.getElementById("previewTotal").textContent=`$${(total + deliveryFee),toFixed(2)}`;
+
+    // address
+    const fullName=document.getElementById("fullName").value || "-",
+          street=document.getElementById("street").value || "",
+          city=document.getElementById("city").value || "";
+    document.getElementById("previewAddress").textContent=`${fullName}, ${street}, ${city}`;
+
+
+    // payment
+
+  });
 }
