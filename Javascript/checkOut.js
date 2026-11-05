@@ -196,11 +196,21 @@ document.getElementById("placeOrderBtn").addEventListener("click", () => {
     console.log("cart is empty");
     return;
   }
-
+  
   localStorage.removeItem("cartProduct");
-  alert("Order successfully");
-  window.location.href = "../index.html";
+  const modal=document.getElementById("successModal");
+  modal.classList.add("show");
 });
+const successModal=document.getElementById("successModal");
+document.getElementById("successBtn").addEventListener("click",()=>{
+  successModal.classList.remove("show");
+
+  document.body.classList.add("fade-in");
+  setTimeout(() => {
+    window.location.href = "../index.html";
+  }, 500);
+});
+
 
 // 始めましょう
 renderCart();
