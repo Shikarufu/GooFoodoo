@@ -558,7 +558,7 @@ body.fade-in {
 }
 
 .success-modal.show .checkmark-circle {
-  animation: popCircle 0.5s ease-out;
+  animation: popCircle 0.5s ease-in-out;
 }
 
 
