@@ -1,7 +1,7 @@
 const backBtn = document.getElementById("backBtn"),
   signUp = document.getElementById("signUp"),
-  popUp = document.getElementById("popUp"),
-  okBtn = document.getElementById("okBtn");
+  successModal = document.getElementById("successModal"),
+  successBtn = document.getElementById("successBtn");
 
 const name = document.getElementById("name");
 const email = document.getElementById("email");
@@ -70,15 +70,15 @@ signUp.addEventListener("click", async (e) => {
       }),
     });
     if (response.ok) {
-      popUp.classList.add("active");
+      successModal.classList.add("show");
     }
   }
 });
 
-okBtn.addEventListener("click", (e) => {
+successBtn.addEventListener("click", (e) => {
   e.preventDefault();
 
-  popUp.classList.remove("active");
+  successModal.classList.remove("show");
 
   document.body.classList.add("fade-in");
   setTimeout(() => {

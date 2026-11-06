@@ -199,6 +199,129 @@ input[type="password"]:focus {
   font-size: 1.1rem;
 }
 
+.success-modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: all 0.3s ease;
+}
+
+.success-modal.show {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+.success-content {
+  background: white;
+  padding: 2.5rem 2rem;
+  border-radius: 2rem;
+  text-align: center;
+  max-width: 350px;
+  width: 90%;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+  transform: scale(0.5);
+  transition:
+    transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1),
+    opacity 0.3s ease;
+}
+
+.success-content .success-btn{
+  width: 50%;
+  font-weight: 700;
+  border-radius: 1rem;
+}
+
+.success-modal.show .success-content{
+  transform:scale(1);
+}
+
+.success-content h2 {
+  margin: 1.2rem 0 0.5rem;
+  font-size: 1.6rem;
+  color: #212121;
+}
+
+.success-content p {
+  color: #666;
+  margin-bottom: 1.8rem;
+  font-size: 1rem;
+}
+
+.checkmark-circle{
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background:green;
+  /* for checkmark */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+
+}
+
+.checkmark{
+  width: 18px;
+  height: 36px;
+  border-right: 5px solid white;
+  border-bottom: 5px solid white;
+  opacity: 0;
+  transform: rotate(45deg) scale(0);
+
+}
+
+.success-modal.show .checkmark{
+  animation:checkAppear .45s ease .4s forwards,
+  checkBounce .25s ease .9s;
+}
+
+.success-modal.show .checkmark-circle{
+  animation:popCircle .3s ease;
+}
+
+@keyframes popCircle{
+  0%{
+    transform:  scale(0);
+  }
+  60%{
+    transform:  scale(1.15);
+  }
+  100%{
+    transform: scale(1);
+  }
+}
+
+@keyframes checkAppear{
+  0%{
+    opacity: 0;
+    transform:rotate(45deg) scale(0);
+  }
+  100%{
+    opacity: 1;
+    transform: rotate(45deg) scale(1);
+  }
+}
+
+@keyframes checkBounce{
+  0%{
+    transform: rotate(45deg) scale(1);
+  }
+  50%{
+    transform:rotate(45deg) scale(1.2);
+  }
+  100%{
+    transform:rotate(45deg) scale(1);
+  }
+}
+
 .popUp {
   position: fixed;
   top: 50%;
