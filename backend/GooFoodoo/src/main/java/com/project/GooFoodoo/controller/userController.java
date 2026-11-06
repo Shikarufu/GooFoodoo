@@ -1,10 +1,14 @@
 package com.project.GooFoodoo.controller;
 
-import com.project.GooFoodoo.entity.user;
+import com.project.GooFoodoo.entity.User;
+import com.project.GooFoodoo.entity.loginRequest;
 import com.project.GooFoodoo.repository.userRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/users")
@@ -15,7 +19,7 @@ public class userController {
 
 //    create
     @PostMapping("/register")
-    public user registerUser(@RequestBody user user){
+    public User registerUser(@RequestBody User user){
         return userRepository.save(user);
     }
 //    @PostMapping("/login")
@@ -27,5 +31,19 @@ public class userController {
 //            return ResponseEntity.status(401).body("Email ou mot de passe incorrect");
 //        }
 //    }
+    @PostMapping("/login")
+    public ResponseEntity<?> login(@RequestBody loginRequest request){
+        Optional<User> user=userRepository.findByEmail(request.getEmail());
+
+        if(user.isEmpty()){
+            return ResponseEntity.badRequest().body("Email not found");
+        }
+        if(!user.get().getPassword().equals(request.getPassword())){
+            return ResponseEntity.badRequest().body("Incorrect Password");
+        }
+
+
+        return ResponseEntity.ok(user.get());
+    }
 
 }

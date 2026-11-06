@@ -1,8 +1,13 @@
 package com.project.GooFoodoo.repository;
 
-import com.project.GooFoodoo.entity.user;
+import com.project.GooFoodoo.entity.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface userRepository extends JpaRepository<user,Long> {
-//    user findByEmail(String email);
+import java.util.Optional;
+
+
+//@Repository
+public interface userRepository extends JpaRepository<User,Long> {
+
+    Optional<User> findByEmail(String mail);
 }
