@@ -6,7 +6,7 @@
   padding: 0;
   box-sizing: border-box;
   font-family: "Roboto Flex", sans-serif;
-  border:.1rem solid greenyellow;
+  /* border:.1rem solid greenyellow; */
 }
 /* decalre color variable */
 :root {
@@ -158,8 +158,19 @@ img {
   margin-top: 1rem;
   font-weight: 700;
   font-family: "Tiny5 Duo", sans-serif;  
+  animation:run .4s ease forwards;
 }
 /* comback doing the sign in button style and style the msg */
+
+@keyframes run{
+  from{
+    transform: scale(0);
+  }
+  to{
+    transform: scale(1);
+  }
+}
+
 
 .cart-icon {
   font-size: 1.3rem;

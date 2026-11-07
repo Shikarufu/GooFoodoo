@@ -3,9 +3,11 @@ const backBtn = document.getElementById("backBtn"),
   signIn = document.getElementById("signIn"),
   warningPopUp = document.getElementById("warningPopUp"),
   email=document.getElementById("email"),
-  password=document.getElementById("password");
+  password=document.getElementById("password"),
+  successModal=document.getElementById("successModal");
 
-const okBtnError = document.querySelector(".okBtnError");
+const okBtnError = document.querySelector(".okBtnError"),
+      successBtn=document.querySelector(".success-btn");
 
 backBtn.addEventListener("click", (e) => {
   e.preventDefault();
@@ -50,6 +52,7 @@ signIn.addEventListener("click", async (e) => {
 
       localStorage.setItem("userId",user.id);
       console.log("login success");
+      successModal.classList.add("見せて");
     }
   }
   
@@ -57,4 +60,13 @@ signIn.addEventListener("click", async (e) => {
 
 okBtnError.addEventListener("click", () => {
   warningPopUp.classList.remove("active");
+});
+
+successBtn.addEventListener("click",(e)=>{
+  e.preventDefault();
+  successModal.classList.remove("見せて");
+  document.body.classList.add("fade-in");
+  setTimeout(()=>{
+    window.location.href="../index.html";
+  },500);
 });
