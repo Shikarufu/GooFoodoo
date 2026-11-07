@@ -280,3 +280,15 @@ checkBtn.addEventListener("click",(e)=>{
   },500); 
 
 });
+
+
+// fetch username to display on home page
+const userId=localStorage.getItem("userId");
+
+if(userId){
+  fetch(`http://localhost:8082/api/users/${userId}`)
+  .then(response=>response.json()).then(user=>{
+    let welcomeUser=document.getElementById("welcomeUser");
+    welcomeUser.textContent=`Welcome back ${user.name} 💖`;
+  })
+}

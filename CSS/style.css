@@ -1,11 +1,12 @@
 @import url("https://fonts.googleapis.com/css2?family=Angkor&family=Bricolage+Grotesque:opsz,wght@12..96,200..800&family=Caveat:wght@400..700&family=Comic+Relief:wght@400;700&family=Dosis:wght@200..800&family=Fasthand&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&family=Roboto+Flex:opsz,wght,XOPQ,XTRA,YOPQ,YTDE,YTFI,YTLC,YTUC@8..144,100..1000,96,468,79,-203,738,514,712&display=swap");
-
+/* welcoem user */
+@import url('https://fonts.googleapis.com/css2?family=Angkor&family=Bricolage+Grotesque:opsz,wght@12..96,200..800&family=Caveat:wght@400..700&family=Comic+Relief:wght@400;700&family=Dosis:wght@200..800&family=Fasthand&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&family=Roboto+Flex:opsz,wght,XOPQ,XTRA,YOPQ,YTDE,YTFI,YTLC,YTUC@8..144,100..1000,96,468,79,-203,738,514,712&family=Tiny5+Duo:ital,wght@0,100..900;1,100..900&display=swap');
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   font-family: "Roboto Flex", sans-serif;
-  /* border:.1rem solid greenyellow; */
+  border:.1rem solid greenyellow;
 }
 /* decalre color variable */
 :root {
@@ -147,6 +148,18 @@ img {
   opacity: 0.8;
   transform: translateX(-2%);
 }
+
+/* welcome user */
+#welcomeUser{
+  position:relative;
+  left: 10%;
+  width: 80%;
+  font-size:3.5rem;
+  margin-top: 1rem;
+  font-weight: 700;
+  font-family: "Tiny5 Duo", sans-serif;  
+}
+/* comback doing the sign in button style and style the msg */
 
 .cart-icon {
   font-size: 1.3rem;
@@ -802,6 +815,12 @@ input[type="email"]:focus{
   .btn-container .btn:hover{
     background: var(--lead);
     color: var(--pure-white);
+  }
+
+  #welcomeUser{
+    font-size: 2rem;
+    left: 5%;
+
   }
   
   .msg{

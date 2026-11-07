@@ -45,5 +45,16 @@ public class userController {
 
         return ResponseEntity.ok(user.get());
     }
+//    fetch data for login
+    @GetMapping("/{id}")
+    public ResponseEntity<?> getUser(@PathVariable Long id){
+        Optional<User> user=userRepository.findById(id);
 
+        if(user.isEmpty()){
+            return ResponseEntity.notFound().build();
+        }
+
+
+        return ResponseEntity.ok(user.get());
+    }
 }

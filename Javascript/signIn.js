@@ -46,6 +46,9 @@ signIn.addEventListener("click", async (e) => {
     });
 
     if(response.ok){
+      const user=await response.json();
+
+      localStorage.setItem("userId",user.id);
       console.log("login success");
     }
   }
