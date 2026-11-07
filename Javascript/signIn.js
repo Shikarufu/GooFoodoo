@@ -1,7 +1,9 @@
 const backBtn = document.getElementById("backBtn"),
   signInPage = document.getElementById("signInPage"),
   signIn = document.getElementById("signIn"),
-  warningPopUp = document.getElementById("warningPopUp");
+  warningPopUp = document.getElementById("warningPopUp"),
+  email=document.getElementById("email"),
+  password=document.getElementById("password");
 
 const okBtnError = document.querySelector(".okBtnError");
 
@@ -21,8 +23,33 @@ signInPage.addEventListener("click", (e) => {
   }, 500);
 });
 
-signIn.addEventListener("click", () => {
-  warningPopUp.classList.add("active");
+signIn.addEventListener("click", async (e) => {
+  e.preventDefault();
+  // បើសិនជាអ្នកប្រើប្រាស់់​ចុចប៊ូតុងដោយគ្មានការបញ្ចូលនោះវានិងលោតនៅសារប្រាប់ថា អត់អាចទទួលតម្លៃទទេបានទេ
+  if(
+  !email.value.trim() ||
+  !password.value.trim()
+  ){
+    warningPopUp.classList.add("active");
+  }
+  else{
+    const response=await fetch("http://localhost:8082/api/users/login",{
+      method:"POST",
+      headers:{
+        "Content-Type":"application/json"
+      },
+      body:JSON.stringify({
+        email:email.value,
+        password:password.value,
+      }),
+
+    });
+
+    if(response.ok){
+      console.log("login success");
+    }
+  }
+  
 });
 
 okBtnError.addEventListener("click", () => {
