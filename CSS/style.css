@@ -149,6 +149,105 @@ img {
   transform: translateX(-2%);
 }
 
+.user-menu{
+  position: relative;
+}
+
+#user-icon{
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #f2bd12;
+  display: none;
+}
+
+#avatar{
+  background:#f4e4ac;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  font-weight: bold;
+  cursor: pointer;
+  display: none;
+  transition: .3s ease;
+}
+
+#avatar:hover{
+  transform: scale(1.2);
+}
+
+#avatar #username{
+  font-size: 2.3rem;
+  margin-left: 23%;
+  /* margin-top: 10%; */
+}
+
+
+.row{
+  display: flex;
+  align-items: center;
+}
+
+.row h4{
+  font-size: 1.2rem;
+  margin-left: 1rem;
+  font-family: "Tiny5 Duo", sans-serif;  
+}
+
+.row p{
+  font-size: 1rem;
+  margin-left: 1rem;
+}
+
+.dropdown-menu{
+  position: absolute;
+  text-align: center;
+  right: 0;
+  top:40px;
+  width: fit-content;
+  height: 17vh;
+  background:var(--hint-yellow);
+  border-radius: 10px;
+  padding: 15px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  display: none;
+  z-index:1000;
+}
+
+.dropdown-menu.show{
+  display: block;
+  animation:kawaii .4s ease forwards;
+}
+
+@keyframes kawaii{
+  from{
+    transform: scale(0);
+  }
+  to{
+    transform:scale(1);
+  }
+}
+
+#logoutBtn{
+  border-color: red;
+  border-style: solid;
+  font-size: 1rem;
+  border-radius: 1rem;
+  padding: .5rem;
+  color: red;
+  margin-top: 1rem;
+  width: 80%;
+  cursor: pointer;
+  transition: .5s ease;
+}
+
+#logoutBtn:hover{
+  border-color: none;
+  background:red;
+  color: white;
+}
+
+
+
 /* welcome user */
 #welcomeUser{
   position:relative;
@@ -755,6 +854,22 @@ input[type="email"]:focus{
 
   .desktop-action .hamburger {
     display: block;
+  }
+
+  .dropdown-menu{
+    right: -50px;
+    height: 16vh;
+
+  }
+
+  #avatar #username{
+    font-size: 2rem;
+    margin-left: 25%;
+    /* margin-top: 10%; */
+  }
+
+  #avatar:hover{
+    transform: none;
   }
 
   .mobile-menu {

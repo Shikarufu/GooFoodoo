@@ -284,11 +284,41 @@ checkBtn.addEventListener("click",(e)=>{
 
 // fetch username to display on home page
 const userId=localStorage.getItem("userId");
-
+let welcomeUser=document.getElementById("welcomeUser"),
+    userName=document.getElementById("userName"),
+    userMail=document.getElementById("userMail"),
+    dropDown=document.getElementById("dropdown"),
+    avatar=document.getElementById("avatar")
+    logoutBtn=document.getElementById("logoutBtn"),
+    signInBtn=document.getElementById("signInBtn"),
+    signInBtnMobile=document.getElementById("signInBtnM"),
+    username=document.getElementById("username");
 if(userId){
   fetch(`http://localhost:8082/api/users/${userId}`)
   .then(response=>response.json()).then(user=>{
-    let welcomeUser=document.getElementById("welcomeUser");
     welcomeUser.textContent=`Welcome back ${user.name} 💖`;
+    userName.textContent=`${user.name}`;
+    userMail.textContent=`${user.email}`;
+    signInBtn.style.display="none";
+    signInBtnMobile.style.display="none";
+    avatar.style.display="block";
+
+    username.textContent=`${user.name.charAt(0).toUpperCase()}`;
+
+
   })
 }
+
+
+// when user click user icon show the detail such as name and email
+avatar.addEventListener("click",()=>{
+  dropDown.classList.toggle("show");
+});
+
+
+logoutBtn.addEventListener("click",()=>{
+  localStorage.removeItem("userId");
+
+  window.location.reload();
+  // userIcon.style.display="none";
+});

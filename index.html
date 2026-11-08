@@ -60,10 +60,27 @@
           </a>
 
           <!-- <button onclick="window.location.href = './HTML/signUp.html'"  class="btn btnn">   -->
-          <a href="./HTML/signIn.html" class="btn btnn">
+          <a href="./HTML/signIn.html" id="signInBtn" class="btn btnn">
             Sign in &nbsp;
             <i class="fa-solid fa-arrow-right-from-bracket"></i>
           </a>
+          <div class="user-menu">
+            <!-- <i 
+            class="fa-solid fa-user" id="user-icon"></i> -->
+            <div id="avatar"><span id="username"></span></div>
+            <div id="dropdown" class="dropdown-menu">
+              <div class="row">
+                <i class="fa-solid fa-user"></i>
+                <h4 id="userName"></h4>
+              </div>
+              <div class="row">
+                <i class="fa-solid fa-envelope"></i>
+                <p id="userMail"></p>
+              </div>
+
+              <button id="logoutBtn">Logout</button>
+            </div>
+          </div>
           <!-- </button> -->
 
           <a href="#" class="hamburger">
@@ -96,7 +113,7 @@
           <li>
             <!-- <button onclick="window.location.href = './HTML/signUp.html'"  class="btn btnn">   -->
 
-            <a href="./HTML/signIn.html" class="btn btnn">
+            <a href="./HTML/signIn.html" id="signInBtnM" class="btn btnn">
               Sign in &nbsp;
               <i class="fa-solid fa-arrow-right-from-bracket"></i>
             </a>
