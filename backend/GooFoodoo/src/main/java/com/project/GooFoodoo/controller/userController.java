@@ -36,10 +36,10 @@ public class userController {
         Optional<User> user=userRepository.findByEmail(request.getEmail());
 
         if(user.isEmpty()){
-            return ResponseEntity.badRequest().body("Email not found");
+            return ResponseEntity.status(404).body("Email not found");
         }
         if(!user.get().getPassword().equals(request.getPassword())){
-            return ResponseEntity.badRequest().body("Incorrect Password");
+            return ResponseEntity.status(401).body("Incorrect Password");
         }
 
 
