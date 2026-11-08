@@ -5,7 +5,7 @@
   padding: 0;
   box-sizing: border-box;
   font-family: "Roboto Flex", sans-serif;
-  border: 0.1rem solid greenyellow;
+  /* border: 0.1rem solid greenyellow; */
 }
 /* decalre color variable */
 :root {
