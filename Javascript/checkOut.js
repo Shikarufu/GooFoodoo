@@ -212,8 +212,27 @@ document.getElementById("placeOrderBtn").addEventListener("click", () => {
 
 });
 
+continueBtn.addEventListener("click",()=>{
+  const fullname=document.getElementById("fullName")
+        street=document.getElementById("street"),
+        city=document.getElementById("city"),
+        phone=document.getElementById("phone"),
+        postalCode=document.getElementById("postalCode");
 
+  if(
+    !fullname.value.trim() ||
+    !street.value.trim() ||
+    !city.value.trim() ||
+    !phone.value.trim() ||
+    !postalCode.value.trim()
+  ){
+    unsuccessModal.classList.add("shows");
+    headmsg.textContent="Missing information";
+    bodymsg.textContent="Please fill them!";
+    return;
+  }
 
+});
 const unsuccessModal=document.getElementById("unsuccessModal");
 const successModal=document.getElementById("successModal");
 // success
@@ -232,10 +251,11 @@ document.getElementById("successBtn").addEventListener("click",()=>{
 document.getElementById("unsuccessBtn").addEventListener("click",()=>{
   unsuccessModal.classList.remove("shows");
 
-  document.body.classList.add("fade-in");
-  setTimeout(() => {
-    window.location.href = "../index.html";
-  }, 500);
+  // document.body.classList.add("fade-in");
+  // setTimeout(() => {
+  //   window.location.href = "../index.html";
+  // }, 500);
+  gotoStep(1);
 });
 
 
