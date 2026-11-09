@@ -143,6 +143,7 @@ img {
   transition: all 0.3s ease-in-out;
 }
 
+
 .btn:hover {
   cursor: pointer;
   opacity: 0.8;

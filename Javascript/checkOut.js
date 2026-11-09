@@ -191,17 +191,29 @@ document.querySelectorAll(".method").forEach((m) => {
   });
 });
 
+const headmsg=document.getElementById("headmsg"),
+      bodymsg=document.getElementById("bodymsg"),
+      claritymsg=document.getElementById("claritymsg")
+      continueBtn=document.getElementById("continueBtn");
+
 // place order success
 document.getElementById("placeOrderBtn").addEventListener("click", () => {
   if (cartProduct.length === 0) {
-    unsuccessModal.classList.add("show")
+    unsuccessModal.classList.add("shows")
+    headmsg.textContent="You cart is empty!";
+    bodymsg.textContent="Please select item";
     return;
   }
 
   localStorage.removeItem("cartProduct");
   const modal=document.getElementById("successModal");
   modal.classList.add("show");
+
+
 });
+
+
+
 const unsuccessModal=document.getElementById("unsuccessModal");
 const successModal=document.getElementById("successModal");
 // success
@@ -218,7 +230,7 @@ document.getElementById("successBtn").addEventListener("click",()=>{
 // unsuccess-  This show when it error,empty cart
 
 document.getElementById("unsuccessBtn").addEventListener("click",()=>{
-  unsuccessModal.classList.remove("show");
+  unsuccessModal.classList.remove("shows");
 
   document.body.classList.add("fade-in");
   setTimeout(() => {

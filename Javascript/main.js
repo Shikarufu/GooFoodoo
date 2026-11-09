@@ -269,6 +269,8 @@ signIn.forEach((sign) => {
   });
 });
 
+
+
 const checkBtn=document.getElementById("checkBtn");
 
 checkBtn.addEventListener("click",(e)=>{
@@ -284,6 +286,11 @@ checkBtn.addEventListener("click",(e)=>{
 
 // fetch username to display on home page
 const userId=localStorage.getItem("userId");
+
+if(!userId){
+  opt.textContent=`Please sign in`;
+}
+
 let welcomeUser=document.getElementById("welcomeUser"),
     userName=document.getElementById("userName"),
     userMail=document.getElementById("userMail"),
@@ -292,7 +299,9 @@ let welcomeUser=document.getElementById("welcomeUser"),
     logoutBtn=document.getElementById("logoutBtn"),
     signInBtn=document.getElementById("signInBtn"),
     signInBtnMobile=document.getElementById("signInBtnM"),
-    username=document.getElementById("username");
+    username=document.getElementById("username"),
+    opt=document.getElementById("opt");
+    
 if(userId){
   fetch(`http://localhost:8082/api/users/${userId}`)
   .then(response=>response.json()).then(user=>{
@@ -304,10 +313,14 @@ if(userId){
     avatar.style.display="block";
 
     username.textContent=`${user.name.charAt(0).toUpperCase()}`;
+    selectCategory.disabled=false;
+    opt.textContent=`Please select category`;
+    checkBtn.disabled=false;
 
 
   })
 }
+
 
 
 // when user click user icon show the detail such as name and email
