@@ -11,11 +11,17 @@ public class orders {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id,userId;
+    private Long id;
+    private Long userId;
 
     private String customerName,address,paymentMethod;
     private double total;
     private LocalDateTime orderDate;
+
+    @PrePersist
+    protected void onCreate(){
+        this.orderDate=LocalDateTime.now();
+    }
 
     //setter
     public void setId(long id){
@@ -40,4 +46,32 @@ public class orders {
         this.orderDate=orderDate;
     }
 
+    //getter
+    public long getId() {
+        return id;
+    }
+
+    public long getUserId() {
+        return userId;
+    }
+
+    public String getCustomerName() {
+        return customerName;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public String getPaymentMethod() {
+        return paymentMethod;
+    }
+
+    public double getTotal() {
+        return total;
+    }
+
+    public LocalDateTime getOrderDate() {
+        return orderDate;
+    }
 }

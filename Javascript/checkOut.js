@@ -197,17 +197,51 @@ const headmsg=document.getElementById("headmsg"),
       continueBtn=document.getElementById("continueBtn");
 
 // place order success
-document.getElementById("placeOrderBtn").addEventListener("click", () => {
+document.getElementById("placeOrderBtn").addEventListener("click", async () => {
   if (cartProduct.length === 0) {
     unsuccessModal.classList.add("shows")
     headmsg.textContent="You cart is empty!";
     bodymsg.textContent="Please select item";
     return;
   }
+  // get value from form
+  const fullName = document.getElementById("fullName").value.trim(),
+      street = document.getElementById("street").value.trim();
+  const userId=localStorage.getItem("userId");
 
-  localStorage.removeItem("cartProduct");
-  const modal=document.getElementById("successModal");
-  modal.classList.add("show");
+  //calculate total
+  const totalText=document.getElementById("total").textContent;
+  const total=parseFloat(totalText.replace("$","")) || 0;
+
+  //buld order object
+  const orderObject={
+    userId: Number(userId),
+    customerName: fullName,
+    address: street,
+    paymentMethod: selectedPayment,
+    total: total
+  };
+
+  try{
+    await fetch("http://localhost:8082/api/users/order",{
+      method:"POST",
+      headers:{
+        "Content-Type":"application/json",
+      },
+      body:JSON.stringify(orderObject),
+
+    });
+    localStorage.removeItem("cartProduct");
+    cartProduct=[];
+
+    const modal=document.getElementById("successModal");
+    modal.classList.add("show");
+  }
+  catch(error){
+    unsuccessModal.classList.add("shows");
+    headmsg.textContent="Order failed";
+    bodymsg.textContent="Something went wrong. Please try again!";
+  }
 
 
 });

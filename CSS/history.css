@@ -1,0 +1,50 @@
+@import url("https://fonts.googleapis.com/css2?family=Angkor&family=Bricolage+Grotesque:opsz,wght@12..96,200..800&family=Caveat:wght@400..700&family=Comic+Relief:wght@400;700&family=Dosis:wght@200..800&family=Fasthand&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&family=Roboto+Flex:opsz,wght,XOPQ,XTRA,YOPQ,YTDE,YTFI,YTLC,YTUC@8..144,100..1000,96,468,79,-203,738,514,712&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Roboto Flex", sans-serif;
+  /* border: 0.1rem solid greenyellow; */
+}
+/* decalre color variable */
+:root {
+  --lead: #212121;
+  --gold-finger: #f2bd12;
+  --eye-ball: #fffdf7;
+  --hint-yellow: #fcf1cc;
+  --pure-white: #fff;
+}
+
+body {
+  background: var(--hint-yellow);
+  opacity: 1;
+  transition: 0.5s;
+}
+
+body.fade-in {
+  opacity: 0;
+}
+
+.btn{
+  position: fixed;
+  top: 5%;
+  left: 2%;
+  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  background-color: var(--gold-finger);
+  width: 5rem;
+  padding: .3rem;
+  color: black;
+  border-radius: 1rem;
+  transition: .3s ease-in;
+}
+
+.btn:hover{
+  transform:scale(1.1);
+}
+
+

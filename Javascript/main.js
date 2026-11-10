@@ -335,3 +335,14 @@ logoutBtn.addEventListener("click",()=>{
   window.location.reload();
   // userIcon.style.display="none";
 });
+
+
+const transactionBtn=document.getElementById("transactionBtn");
+transactionBtn.addEventListener("click",(e)=>{
+  e.preventDefault();
+
+  document.body.classList.add("fade-out");
+  setTimeout(() => {
+    window.location.href = "HTML/history.html";
+  }, 500);
+});
