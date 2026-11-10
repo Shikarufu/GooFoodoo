@@ -188,6 +188,26 @@ img {
   align-items: center;
 }
 
+.row .transactionBtn{
+  margin-left: 1rem;
+  font-size: 1rem;
+  border-radius: 1rem;
+  padding: .3rem;
+  /* border: none; */
+  border-color: lightgreen;
+  border-style: solid;
+  color: rgb(23, 247, 23);
+  width: 100%;
+  transition: .3s ease;
+  cursor: pointer;
+}
+
+.row .transactionBtn:hover{
+  border-color: transparent;
+  background:lightgreen;
+  color: white;
+}
+
 .row h4{
   font-size: 1.2rem;
   margin-left: 1rem;
@@ -205,7 +225,7 @@ img {
   right: 0;
   top:40px;
   width: fit-content;
-  height: 17vh;
+  height: 19.5vh;
   background:var(--hint-yellow);
   border-radius: 10px;
   padding: 15px;
@@ -859,7 +879,7 @@ input[type="email"]:focus{
 
   .dropdown-menu{
     right: -50px;
-    height: 16vh;
+    height: 17vh;
 
   }
 
