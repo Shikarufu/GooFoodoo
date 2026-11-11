@@ -119,6 +119,59 @@ body {
   overflow-y: auto;
 }
 
+.receipt-modal{
+  position:fixed;
+  /* for blur or make little dark like an important msg */
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items:center;
+
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: .3s;
+}
+
+.receipt-modal.show{
+  opacity: 1;
+  pointer-events: auto;
+  visibility: visible;
+}
+
+.receipt-content{
+  display: flex;
+  flex-direction: column;
+  background:white;
+  border-radius: 1rem;
+  padding: 1rem;
+  height: 250px;
+}
+
+#closeReceipt{
+  width: 40px;
+  height: 40px;
+  padding: .5rem;
+  position: relative;
+  left: 90%;
+  border-radius: 50%;
+  border-style: none;
+  background: rgba(248, 49, 49, 0.993);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+
+  box-shadow: 0 8px 32px 0 rgba(255, 6, 6, 0.568);
+  border-radius: 9999px; /* Pill shape */
+  color: #fff;
+  cursor: pointer;
+  transition: all 0.3s ease
+}
+
+#closeReceipt:hover{
+  transform: translateY(-3px);
+}
+
 .history-card {
   display: flex;
   flex-direction: column;
@@ -185,11 +238,22 @@ body {
   align-items: center;
   gap: 16px;
 }
+/* comback add catch error */
 
+/* im back */
 @media screen and (max-width:966px) {
   .header {
     display: flex;
     flex-direction: column;
+   
     
+  }
+  #closeReceipt:hover{
+    transform: none;
+  }
+
+  .receipt-content{
+    width: 80%;
+    height: 280px;
   }
 }
