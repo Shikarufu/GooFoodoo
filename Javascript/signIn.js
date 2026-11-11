@@ -72,7 +72,7 @@ signIn.addEventListener("click", async (e) => {
     }
     catch(error){
         unsuccessModal.classList.add("show");
-        headmsg.textContent="Server offline";
+        headmsg.textContent="Server is offline";
         bodymsg.textContent=`Can not connect to GooFoodoo server.`;
     }
     // if(response.status === 401){

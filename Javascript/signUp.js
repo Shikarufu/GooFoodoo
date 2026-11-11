@@ -1,7 +1,11 @@
 const backBtn = document.getElementById("backBtn"),
   signUp = document.getElementById("signUp"),
   successModal = document.getElementById("successModal"),
-  successBtn = document.getElementById("successBtn");
+  successBtn = document.getElementById("successBtn"),
+  unsuccessModal=document.getElementById("unsuccessModal"),
+  headmsg=document.getElementById("headmsg"),
+  bodymsg=document.getElementById("bodymsg"),
+  unsuccessBtn=document.getElementById("unsuccessBtn");
 
 const name = document.getElementById("name");
 const email = document.getElementById("email");
@@ -58,19 +62,27 @@ signUp.addEventListener("click", async (e) => {
   // request
   // this once the user fill the form
   else {
-    const response = await fetch("http://localhost:8082/api/users/register", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        name: name.value,
-        email: email.value,
-        password: password.value,
-      }),
-    });
-    if (response.ok) {
-      successModal.classList.add("show");
+    try{
+      const response = await fetch("http://localhost:8082/api/users/register", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          name: name.value,
+          email: email.value,
+          password: password.value,
+        }),
+      });
+      if (response.ok) {
+        successModal.classList.add("show");
+      }
+      
+    }
+    catch(error){
+      unsuccessModal.classList.add("shows");
+      headmsg.textContent="Sign up failed";
+      bodymsg.textContent="Due to GooFoodoo server is offline";
     }
   }
 });
@@ -84,6 +96,10 @@ successBtn.addEventListener("click", (e) => {
   setTimeout(() => {
     window.location.href = "../index.html";
   }, 500);
+});
+
+unsuccessBtn.addEventListener("click",()=>{
+  unsuccessModal.classList.remove("shows");
 });
 
 // once user click the password field

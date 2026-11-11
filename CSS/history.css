@@ -14,6 +14,17 @@
   --eye-ball: #fffdf7;
   --hint-yellow: #fcf1cc;
   --pure-white: #fff;
+  --primary: #ff6b00;
+  --primary-light: #fff0e6;
+  --bg: #f8f9fa;
+  --surface: #ffffff;
+  --text-main: #1a1d1e;
+  --text-muted: #6c757d;
+  --border: #e9ecef;
+  --success: #2e7d32;
+  --success-bg: #e8f5e9;
+  --shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  --radius: 16px;
 }
 
 body {
@@ -26,25 +37,91 @@ body.fade-in {
   opacity: 0;
 }
 
-.btn{
+.btn {
   position: fixed;
   top: 5%;
   left: 2%;
-  
+
   display: flex;
   justify-content: center;
   align-items: center;
   text-decoration: none;
   background-color: var(--gold-finger);
   width: 5rem;
-  padding: .3rem;
+  padding: 0.3rem;
   color: black;
   border-radius: 1rem;
-  transition: .3s ease-in;
+  transition: 0.3s ease-in;
 }
 
-.btn:hover{
-  transform:scale(1.1);
+.btn:hover {
+  transform: scale(1.1);
 }
 
 
+body {
+  background-color: var(--bg);
+  color: var(--text-main);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px;
+}
+
+.container {
+  width: 100%;
+  max-width: 800px;
+  background: var(--surface);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  overflow: scroll;
+  border: 1px solid var(--border);
+}
+/* tmr continue modify transaction */
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24px 32px;
+  border-bottom: 1px solid var(--border);
+}
+
+.header h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+
+.history-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 32px;
+  max-height: 600px;
+  overflow-y: auto;
+}
+
+.history-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 20px;
+  transition: all 0.2s ease;
+}
+
+.history-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  border-color: var(--primary);
+}
+
+.card-left {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
