@@ -145,6 +145,7 @@ body {
   flex-direction: column;
   background:white;
   border-radius: 1rem;
+  width: fit-content;
   padding: 1rem;
   height: 250px;
 }

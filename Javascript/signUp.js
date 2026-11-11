@@ -37,6 +37,7 @@ signUp.addEventListener("click", async (e) => {
 
   // declare variable
   const name = document.getElementById("name");
+  
   const email = document.getElementById("email");
   const password = document.getElementById("password");
   const confirmPassword = document.getElementById("confirmPassword");
@@ -85,6 +86,9 @@ signUp.addEventListener("click", async (e) => {
       bodymsg.textContent="Due to GooFoodoo server is offline";
     }
   }
+
+  localStorage.setItem("userName",name.value);
+
 });
 
 successBtn.addEventListener("click", (e) => {

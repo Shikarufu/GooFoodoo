@@ -18,8 +18,9 @@ backBtn.addEventListener("click", (e) => {
   }, 500);
 });
 
-function openReceipt(order) {
+const userName = localStorage.getItem("userName") || "Guest";
 
+function openReceipt(order) {
   receiptBody.innerHTML = `
     <h2>
         🍔 GooFoodoo Receipt
@@ -28,8 +29,8 @@ function openReceipt(order) {
     <hr>
 
     <p style="margin-top:1rem;">
-        <strong>Order ID:</strong>
-        #${order.id}
+        <strong>Customer Name:</strong>
+        #${userName}
     </p>
 
     <p>
