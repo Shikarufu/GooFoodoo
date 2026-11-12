@@ -207,7 +207,10 @@ document.getElementById("placeOrderBtn").addEventListener("click", async () => {
   // get value from form
   const fullName = document.getElementById("fullName").value.trim(),
       street = document.getElementById("street").value.trim();
+
+  
   const userId=localStorage.getItem("userId");
+
 
   //calculate total
   const totalText=document.getElementById("total").textContent;

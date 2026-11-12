@@ -18,7 +18,15 @@ backBtn.addEventListener("click", (e) => {
   }, 500);
 });
 
-const userName = localStorage.getItem("userName") || "Guest";
+// const userName = localStorage.getItem("userName") || "Guest";
+let currentUser=null;
+const userId = localStorage.getItem("userId");
+
+fetch(`http://localhost:8082/api/users/${userId}`)
+.then(response=>response.json())
+.then(user=>{
+	currentUser=user;
+});
 
 function openReceipt(order) {
   receiptBody.innerHTML = `
@@ -30,13 +38,12 @@ function openReceipt(order) {
 
     <p style="margin-top:1rem;">
         <strong>Customer Name:</strong>
-        #${userName}
+        #${currentUser.name}
     </p>
 
     <p>
         <strong>Date:</strong>
-        ${new Date(order.orderDate)
-          .toLocaleString()}
+        ${new Date(order.orderDate).toLocaleString()}
     </p>
 
     <p>
@@ -45,22 +52,37 @@ function openReceipt(order) {
     </p>
 
     <p style="margin-bottom:1rem;">
+
         <strong>Payment:</strong>
         ${order.paymentMethod}
     </p>
 
     <hr>
-
-    <h3>
-        Total:
-        $${order.total.toFixed(2)}
-    </h3>
+					
+    <div style="
+				display:flex;
+				justify-content: space-between;
+				align-items:center;
+				margin-top:.5rem;">
+        <h3>
+					Total:
+					$${order.total.toFixed(2)}
+				</h3>
+				<button style="
+								padding:.5rem;
+								border-radius:1rem;
+								cursor:pointer;
+								border-style:none;
+								background:#f2bd12;
+								font-weight:600;">
+					Download pdf
+				</button>  
+    </div>
   `;
 
   receiptModal.classList.add("show");
 }
 
-const userId = localStorage.getItem("userId");
 let qtyId = 1;
 
 let allOrder = [];
@@ -133,6 +155,17 @@ document.addEventListener("click", (event) => {
   }
 });
 
-closeReceipt.addEventListener("click",()=>{
+closeReceipt.addEventListener("click", () => {
   receiptModal.classList.remove("show");
 });
+
+
+// generate pdf
+
+function downloadReceipt(order){
+	const {jsPDF} =window.jspdf;
+	const doc=new jsPDF();
+
+	doc.text("GooFoodoo Receipt",20,20);
+	doc.text()
+}

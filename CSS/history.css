@@ -127,7 +127,6 @@ body {
   display: flex;
   justify-content: center;
   align-items:center;
-
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
@@ -146,7 +145,7 @@ body {
   background:white;
   border-radius: 1rem;
   width: fit-content;
-  padding: 1rem;
+  padding: 1rem 1.2rem 0 1.2rem;
   height: 250px;
 }
 

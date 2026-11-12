@@ -87,7 +87,6 @@ signUp.addEventListener("click", async (e) => {
     }
   }
 
-  localStorage.setItem("userName",name.value);
 
 });
 
