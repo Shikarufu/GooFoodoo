@@ -68,7 +68,7 @@ function openReceipt(order) {
 					Total:
 					$${order.total.toFixed(2)}
 				</h3>
-				<button style="
+				<button class="downloadPDF" data-id="${order.id}" style="
 								padding:.5rem;
 								border-radius:1rem;
 								cursor:pointer;
@@ -86,6 +86,7 @@ function openReceipt(order) {
 let qtyId = 1;
 
 let allOrder = [];
+let allOrders=[];
 
 fetch(`http://localhost:8082/api/users/order/${userId}`)
   .then((response) => response.json())
@@ -96,6 +97,7 @@ fetch(`http://localhost:8082/api/users/order/${userId}`)
 
     totalSpent.textContent = `$${totalSpents.toFixed(2)}`;
     allOrder = orders;
+		allOrders=orders;
     // console.log(allOrder);
     orders.forEach((order) => {
       totalOrder.textContent = qtyId;
@@ -167,5 +169,19 @@ function downloadReceipt(order){
 	const doc=new jsPDF();
 
 	doc.text("GooFoodoo Receipt",20,20);
-	doc.text()
+	doc.text(`Customer Name: ${currentUser.name}`,20,40);
+	doc.text(`Order total: $${order.total.toFixed(2)}`,20,60);
+
+	doc.text("Thanks customer for choosing GooFoodoo",20,80);
+	doc.save(`GooFooDoo Receipt-${currentUser.name}.pdf`);
 }
+
+document.addEventListener("click",(e)=>{
+	if(e.target && e.target.classList.contains("downloadPDF")){
+		const orderId = Number(e.target.dataset.id);
+
+    const selectedOrder = allOrders.find((order) => order.id === orderId);
+
+    downloadReceipt(selectedOrder);
+	}
+});
