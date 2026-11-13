@@ -166,7 +166,9 @@ closeReceipt.addEventListener("click", () => {
 
 function downloadReceipt(order){
 	const {jsPDF} =window.jspdf;
-	const doc=new jsPDF();
+	const doc=new jsPDF({
+		orientation: 'l',
+	});
 
 	doc.text("GooFoodoo Receipt",20,20);
 	doc.text(`Customer Name: ${currentUser.name}`,20,40);

@@ -125,62 +125,69 @@
   },
   {
     "id":17,
+    "name":"Seafood Noodle",
+    "price":"$2.5",
+    "image":"images/seafood-noodle.webp",
+    "category":"food"
+  },
+  {
+    "id":18,
     "name":"Coca Cola Bottle",
     "price":"$1.0",
     "image":"images/coca-cola-bottle.webp",
     "category":"drink"
   },
   {
-    "id":18,
+    "id":19,
     "name":"Fanta Cane Grape flavour",
     "price":"$1.0",
     "image":"images/fanta-cane-grape.webp",
     "category":"drink"
   },
   {
-    "id":19,
+    "id":20,
     "name":"Coca Cola Cane",
     "price":"$1.5",
     "image":"images/coca-cola-cane.webp",
     "category":"drink"
   },
   {
-    "id":20,
+    "id":21,
     "name":"Fanta Cane orange flavour",
     "price":"1.5",
     "image":"images/fanta-cane.webp",
     "category":"drink"
   },
   {
-    "id":21,
+    "id":22,
     "name":"Pepsi Cane",
     "price":"$1.5",
     "image":"images/pepsi-cane.webp",
     "category":"drink"
   },
   {
-    "id":22,
+    "id":23,
     "name":"Pocari Sweat Cane",
     "price":"$2.5",
     "image":"images/pocari-sweat-cane.webp",
     "category":"drink"
   },
   {
-    "id":23,
+    "id":24,
     "name":"Red Bull Cane",
     "price":"$3.0",
     "image":"images/red-bull-cane.webp",
     "category":"drink"
   },
   {
-    "id":24,
+    "id":25,
     "name":"Water Bottle",
     "price":"$0.5",
     "image":"images/water-bottle.webp",
     "category":"drink"
   },
   {
-    "id":25,
+    "id":26,
     "name":"Sprite Cane",
     "price":"$1.5",
     "image":"images/sprite-cane.webp",
