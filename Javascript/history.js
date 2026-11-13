@@ -7,6 +7,7 @@ const backBtn = document.getElementById("backBtn"),
   closeReceipt = document.getElementById("closeReceipt");
 //by class
 const receiptBody = document.querySelector(".receiptBody");
+const api_url="https://goofoodoobackend-production.up.railway.app";
 
 backBtn.addEventListener("click", (e) => {
   e.preventDefault();
@@ -22,7 +23,7 @@ backBtn.addEventListener("click", (e) => {
 let currentUser=null;
 const userId = localStorage.getItem("userId");
 
-fetch(`http://localhost:8082/api/users/${userId}`)
+fetch(`${api_url}/api/users/${userId}`)
 .then(response=>response.json())
 .then(user=>{
 	currentUser=user;
@@ -88,7 +89,7 @@ let qtyId = 1;
 let allOrder = [];
 let allOrders=[];
 
-fetch(`http://localhost:8082/api/users/order/${userId}`)
+fetch(`${api_url}/api/users/order/${userId}`)
   .then((response) => response.json())
   .then((orders) => {
     const totalSpents = orders.reduce((sum, order) => {

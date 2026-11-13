@@ -13,6 +13,9 @@ const backBtn = document.getElementById("backBtn"),
 const okBtnError = document.querySelector(".okBtnError"),
       successBtn=document.querySelector(".success-btn");
 
+const api_url="https://goofoodoobackend-production.up.railway.app";
+
+
 backBtn.addEventListener("click", (e) => {
   e.preventDefault();
   document.body.classList.add("fade-in");
@@ -40,7 +43,7 @@ signIn.addEventListener("click", async (e) => {
   }
   else{
     try{
-      const response=await fetch("http://localhost:8082/api/users/login",{
+      const response=await fetch(`${api_url}/api/users/login`,{
         method:"POST",
         headers:{
           "Content-Type":"application/json"

@@ -18,6 +18,9 @@ const cartList = document.querySelector(".cart-list");
 const cartTotal = document.querySelector(".cart-total");
 const cartValue = document.querySelector(".cart-value");
 
+const api_url="https://goofoodoobackend-production.up.railway.app";
+
+
 // using id
 const topBtn = document.getElementById("topbtn");
 const msg = document.getElementById("msg"),
@@ -291,6 +294,7 @@ if(!userId){
   opt.textContent=`Please sign in`;
 }
 
+
 let welcomeUser=document.getElementById("welcomeUser"),
     userName=document.getElementById("userName"),
     userMail=document.getElementById("userMail"),
@@ -303,7 +307,7 @@ let welcomeUser=document.getElementById("welcomeUser"),
     opt=document.getElementById("opt");
     
 if(userId){
-  fetch(`http://localhost:8082/api/users/${userId}`)
+  fetch(`${api_url}/api/users/${userId}`)
   .then(response=>response.json()).then(user=>{
     welcomeUser.textContent=`Welcome back ${user.name} 💖`;
     userName.textContent=`${user.name}`;
