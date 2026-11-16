@@ -900,7 +900,7 @@ input[type="email"]:focus{
     align-items: center;
     gap: 1rem;
     position: absolute;
-    top: 20%;
+    top: 28%;
     left: -100%;
     transform: translateX(-50%);
     width: 20rem;

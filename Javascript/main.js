@@ -48,6 +48,23 @@ hamburger.addEventListener("click", () => {
   bar.classList.toggle("fa-bars");
   bar.classList.toggle("fa-xmark");
 });
+
+// click anywhere or with button to close
+document.addEventListener("click",(e)=>{
+  if(
+    mobileMenu.classList.contains("mobile-menu-active") &&
+    !mobileMenu.contains(e.target) &&
+    !hamburger.contains(e.target)
+  ){
+    hamburger.classList.remove("mobile-menu-active");
+    mobileMenu.classList.remove("mobile-menu-active");
+
+    bar.classList.add("fa-bars");
+    bar.classList.remove("fa-xmark");
+  }
+});
+
+
 // Back to top button
 window.addEventListener("scroll", () => {
   if (window.scrollY > 300) {
@@ -63,6 +80,9 @@ topBtn.addEventListener("click", () => {
     behavior: "smooth",
   });
 });
+
+//click outside
+
 
 selectCategory.addEventListener("change", () => {
   const selectedCategory = selectCategory.value;
@@ -163,6 +183,17 @@ const showCart = (category = "") => {
 
 okBtn.addEventListener("click", () => {
   msg.classList.remove("active");
+});
+
+//can click anywhere
+document.addEventListener("click", (e) => {
+  if (
+    msg.classList.contains("active") &&
+    !msg.contains(e.target) &&
+    !e.target.closest(".card-btn")
+  ) {
+    msg.classList.remove("active");
+  }
 });
 
 const addToCart = (product) => {
@@ -299,7 +330,7 @@ let welcomeUser=document.getElementById("welcomeUser"),
     userName=document.getElementById("userName"),
     userMail=document.getElementById("userMail"),
     dropDown=document.getElementById("dropdown"),
-    avatar=document.getElementById("avatar")
+    avatar=document.getElementById("avatar"),
     logoutBtn=document.getElementById("logoutBtn"),
     signInBtn=document.getElementById("signInBtn"),
     signInBtnMobile=document.getElementById("signInBtnM"),
@@ -330,6 +361,16 @@ if(userId){
 // when user click user icon show the detail such as name and email
 avatar.addEventListener("click",()=>{
   dropDown.classList.toggle("show");
+});
+
+document.addEventListener("click",(e)=>{
+  if(
+    dropDown.classList.contains("show")&&
+    !dropDown.contains(e.target) &&
+    !avatar.contains(e.target)
+  ){
+    dropDown.classList.remove("show");
+  }
 });
 
 
