@@ -13,7 +13,7 @@ let cartProduct = JSON.parse(localStorage.getItem("cartProduct")) || [];
 
 const deliveryFee = 0.5;
 
-const api_url="https://goofoodoobackend-production.up.railway.app";
+// const api_url="https://goofoodoobackend-production.up.railway.app";
 
 
 // steps.forEach((step,index)=>{
@@ -229,7 +229,7 @@ document.getElementById("placeOrderBtn").addEventListener("click", async () => {
   };
 
   try{
-    await fetch(`${api_url}/api/users/order`,{
+    await fetch(`${api_url}/order`,{
       method:"POST",
       headers:{
         "Content-Type":"application/json",

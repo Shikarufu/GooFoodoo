@@ -18,7 +18,7 @@ const cartList = document.querySelector(".cart-list");
 const cartTotal = document.querySelector(".cart-total");
 const cartValue = document.querySelector(".cart-value");
 
-const api_url="https://goofoodoobackend-production.up.railway.app";
+// const api_url="https://goofoodoobackend-production.up.railway.app";
 
 
 // using id
@@ -307,7 +307,7 @@ let welcomeUser=document.getElementById("welcomeUser"),
     opt=document.getElementById("opt");
     
 if(userId){
-  fetch(`${api_url}/api/users/${userId}`)
+  fetch(`${api_url}/${userId}`)
   .then(response=>response.json()).then(user=>{
     welcomeUser.textContent=`Welcome back ${user.name} 💖`;
     userName.textContent=`${user.name}`;

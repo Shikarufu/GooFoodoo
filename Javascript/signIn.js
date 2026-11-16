@@ -13,7 +13,7 @@ const backBtn = document.getElementById("backBtn"),
 const okBtnError = document.querySelector(".okBtnError"),
       successBtn=document.querySelector(".success-btn");
 
-const api_url="https://goofoodoobackend-production.up.railway.app";
+// const api_url="https://goofoodoobackend-production.up.railway.app";
 
 
 backBtn.addEventListener("click", (e) => {
@@ -43,7 +43,7 @@ signIn.addEventListener("click", async (e) => {
   }
   else{
     try{
-      const response=await fetch(`${api_url}/api/users/login`,{
+      const response=await fetch(`${api_url}/login`,{
         method:"POST",
         headers:{
           "Content-Type":"application/json"

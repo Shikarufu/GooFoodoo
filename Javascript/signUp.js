@@ -18,7 +18,7 @@ const okBtnErrors = document.querySelectorAll(".okBtnError");
 
 const msg = document.getElementById("msg");
 
-const api_url="https://goofoodoobackend-production.up.railway.app";
+// const api_url="https://goofoodoobackend-production.up.railway.app";
 
 // clean
 
@@ -66,7 +66,7 @@ signUp.addEventListener("click", async (e) => {
   // this once the user fill the form
   else {
     try{
-      const response = await fetch(`${api_url}/api/users/register`, {
+      const response = await fetch(`${api_url}/register`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
