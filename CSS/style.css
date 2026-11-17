@@ -225,7 +225,7 @@ img {
   right: 0;
   top:40px;
   width: fit-content;
-  height: 19.5vh;
+  height: fit-content;
   background:var(--hint-yellow);
   border-radius: 10px;
   padding: 15px;
@@ -900,7 +900,7 @@ input[type="email"]:focus{
     align-items: center;
     gap: 1rem;
     position: absolute;
-    top: 28%;
+    top: 30%;
     left: -100%;
     transform: translateX(-50%);
     width: 20rem;

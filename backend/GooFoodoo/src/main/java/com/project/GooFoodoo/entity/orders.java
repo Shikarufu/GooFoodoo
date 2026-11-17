@@ -1,9 +1,11 @@
 package com.project.GooFoodoo.entity;
 
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.*;
 
-import java.time.LocalDateTime;
+import java.time.OffsetDateTime;
+import java.time.ZoneOffset;
 
 @Entity
 @Table(name = "orders")
@@ -16,11 +18,14 @@ public class orders {
 
     private String customerName,address,paymentMethod;
     private double total;
-    private LocalDateTime orderDate;
+    @JsonFormat(
+        pattern = "yyyy-MM-dd'T'HH:mm:ssXXX"
+    )
+    private OffsetDateTime orderDate;
 
     @PrePersist
     protected void onCreate(){
-        this.orderDate=LocalDateTime.now();
+        this.orderDate=OffsetDateTime.now(ZoneOffset.UTC);
     }
 
     //setter
@@ -42,7 +47,7 @@ public class orders {
     public void setTotal(double total){
         this.total=total;
     }
-    public void setOrderDate(LocalDateTime orderDate){
+    public void setOrderDate(OffsetDateTime orderDate){
         this.orderDate=orderDate;
     }
 
@@ -71,7 +76,7 @@ public class orders {
         return total;
     }
 
-    public LocalDateTime getOrderDate() {
+    public OffsetDateTime getOrderDate() {
         return orderDate;
     }
 }

@@ -4,8 +4,10 @@ package com.project.GooFoodoo.controller;
 import com.project.GooFoodoo.entity.User;
 import com.project.GooFoodoo.entity.loginRequest;
 import com.project.GooFoodoo.entity.orders;
+import com.project.GooFoodoo.entity.orderItems;
 
 import com.project.GooFoodoo.repository.orderRepository;
+import com.project.GooFoodoo.repository.orderItemRepository;
 import com.project.GooFoodoo.repository.userRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -23,6 +25,8 @@ public class userController {
     userRepository userRepository;
     @Autowired
     orderRepository orderRepository;
+    @Autowired
+    orderItemRepository orderItemRepository;
 
 //    create
     @PostMapping("/register")
@@ -67,9 +71,15 @@ public class userController {
 
     //orders
     @PostMapping("/order")
-    public orders saveOrder(@RequestBody orders order){
+    public orders saveOrder(@RequestBody OrderRequestDTO request){
+        orders savedOrder = orderRepository.save(request.getOrder());
 
-        return orderRepository.save(order);
+        // 2. Loop through cart items and save them with the order ID!
+        for (orderItems item : request.getItems()) {
+            item.setOrderId(savedOrder.getId()); // Link item to the created order ID
+            orderItemRepository.save(item);
+        }
+        return orderRepository.save(savedOrder);
     }
 
     //fetch data
@@ -77,5 +87,21 @@ public class userController {
     public List<orders> getUserOrders(@PathVariable Long id){
 
         return orderRepository.findByUserId(id);
+    }
+
+
+    @GetMapping("/orderItem/{orderId}")
+    public List<orderItems> getOrderItem(@PathVariable Long orderId){
+        return orderItemRepository.findByOrderId(orderId);
+    }
+    public static class OrderRequestDTO {
+        private orders order;
+        private List<orderItems> items;
+
+        public orders getOrder() { return order; }
+        public void setOrder(orders order) { this.order = order; }
+
+        public List<orderItems> getItems() { return items; }
+        public void setItems(List<orderItems> items) { this.items = items; }
     }
 }

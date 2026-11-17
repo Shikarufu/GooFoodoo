@@ -92,6 +92,16 @@ signUp.addEventListener("click", async (e) => {
 
 });
 
+document.addEventListener("click",(e)=>{
+  if(
+    warningPopUp.classList.contains("active")&&
+    !warningPopUp.contains(e.target)&&
+   !signUp.contains(e.target)
+  ){
+    warningPopUp.classList.remove("active");
+  }
+});
+
 successBtn.addEventListener("click", (e) => {
   e.preventDefault();
 
@@ -102,6 +112,7 @@ successBtn.addEventListener("click", (e) => {
     window.location.href = "../index.html";
   }, 500);
 });
+
 
 unsuccessBtn.addEventListener("click",()=>{
   unsuccessModal.classList.remove("shows");

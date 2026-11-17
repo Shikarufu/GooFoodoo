@@ -227,7 +227,6 @@ document.getElementById("placeOrderBtn").addEventListener("click", async () => {
     paymentMethod: selectedPayment,
     total: total
   };
-
   try{
     await fetch(`${api_url}/order`,{
       method:"POST",
@@ -253,14 +252,12 @@ document.getElementById("placeOrderBtn").addEventListener("click", async () => {
 });
 
 continueBtn.addEventListener("click",()=>{
-  const fullname=document.getElementById("fullName")
-        street=document.getElementById("street"),
+  const street=document.getElementById("street"),
         city=document.getElementById("city"),
         phone=document.getElementById("phone"),
         postalCode=document.getElementById("postalCode");
 
   if(
-    !fullname.value.trim() ||
     !street.value.trim() ||
     !city.value.trim() ||
     !phone.value.trim() ||

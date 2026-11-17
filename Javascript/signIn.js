@@ -32,6 +32,20 @@ signInPage.addEventListener("click", (e) => {
   }, 500);
 });
 
+
+
+document.addEventListener("click", (e) => {
+  if (
+    warningPopUp.classList.contains("active") &&
+    !warningPopUp.contains(e.target) &&
+    !signIn.contains(e.target)
+  ) {
+    warningPopUp.classList.remove("active");
+  }
+
+});
+
+
 signIn.addEventListener("click", async (e) => {
   e.preventDefault();
   // បើសិនជាអ្នកប្រើប្រាស់់​ចុចប៊ូតុងដោយគ្មានការបញ្ចូលនោះវានិងលោតនៅសារប្រាប់ថា អត់អាចទទួលតម្លៃទទេបានទេ
