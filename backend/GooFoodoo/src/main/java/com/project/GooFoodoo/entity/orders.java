@@ -13,6 +13,7 @@ public class orders {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+//    order id
     private Long id;
     private Long userId;
 

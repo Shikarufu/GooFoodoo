@@ -15,7 +15,6 @@ const deliveryFee = 0.5;
 
 // const api_url="https://goofoodoobackend-production.up.railway.app";
 
-
 // steps.forEach((step,index)=>{
 //   step.addEventListener("click",()=>{
 //     if(index <= currentStep){
@@ -144,11 +143,17 @@ function gotoStep(step) {
 }
 
 // cartProduct.length=0;
-
+const userId = localStorage.getItem("userId");
+let fullName = null;
+fetch(`${api_url}/${userId}`)
+  .then((response) => response.json())
+  .then((user) => {
+    fullName = user.name;
+  });
 // preview
 function updatePreview() {
   const previewItems = document.getElementById("previewItems"),
-        previewAddress=document.getElementById("previewAddress");
+    previewAddress = document.getElementById("previewAddress");
   let html = "";
   let total = 0;
 
@@ -170,11 +175,9 @@ function updatePreview() {
     `$${(total + deliveryFee).toFixed(2)}`;
 
   // address
-  const fullName = document.getElementById("fullName").value || "No address",
-    street = document.getElementById("street").value || "",
+  const street = document.getElementById("street").value || "",
     city = document.getElementById("city").value || "";
-  previewAddress.textContent =
-    `${fullName}, ${street}, ${city}`;
+  previewAddress.textContent = `${fullName}, ${street}, ${city}`;
 
   // payment
   const activeMethod = document.querySelector(".method.active");
@@ -190,90 +193,90 @@ document.querySelectorAll(".method").forEach((m) => {
 
     m.classList.add("active");
 
-    selectedPayment = m.querySelector("span")?.textContent || m.dataset.method || "Card";
+    selectedPayment =
+      m.querySelector("span")?.textContent || m.dataset.method || "Card";
   });
 });
 
-const headmsg=document.getElementById("headmsg"),
-      bodymsg=document.getElementById("bodymsg"),
-      claritymsg=document.getElementById("claritymsg")
-      continueBtn=document.getElementById("continueBtn");
+const headmsg = document.getElementById("headmsg"),
+  bodymsg = document.getElementById("bodymsg"),
+  claritymsg = document.getElementById("claritymsg");
+continueBtn = document.getElementById("continueBtn");
 
 // place order success
 document.getElementById("placeOrderBtn").addEventListener("click", async () => {
   if (cartProduct.length === 0) {
-    unsuccessModal.classList.add("shows")
-    headmsg.textContent="You cart is empty!";
-    bodymsg.textContent="Please select item";
+    unsuccessModal.classList.add("shows");
+    headmsg.textContent = "You cart is empty!";
+    bodymsg.textContent = "Please select item";
     return;
   }
   // get value from form
-  const fullName = document.getElementById("fullName").value.trim(),
-      street = document.getElementById("street").value.trim();
-
-  
-  const userId=localStorage.getItem("userId");
-
+  const street = document.getElementById("street").value.trim();
 
   //calculate total
-  const totalText=document.getElementById("total").textContent;
-  const total=parseFloat(totalText.replace("$","")) || 0;
+  const totalText = document.getElementById("total").textContent;
+  const total = parseFloat(totalText.replace("$", "")) || 0;
 
   //buld order object
-  const orderObject={
-    userId: Number(userId),
-    customerName: fullName,
-    address: street,
-    paymentMethod: selectedPayment,
-    total: total
+  const orderRequest = {
+    order: {
+      userId: Number(userId),
+      customerName: fullName,
+      address: street,
+      paymentMethod: selectedPayment,
+      total: total,
+    },
+    items: cartProduct.map((item) => ({
+      productName: item.name,
+      quantity: item.quantity || 1,
+      price: parseFloat(item.price.replace("$", "")),
+    })),
   };
-  try{
-    await fetch(`${api_url}/order`,{
-      method:"POST",
-      headers:{
-        "Content-Type":"application/json",
-      },
-      body:JSON.stringify(orderObject),
+  console.log(orderRequest);
 
+  try {
+    await fetch(`${api_url}/order`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(orderRequest),
     });
     localStorage.removeItem("cartProduct");
-    cartProduct=[];
+    cartProduct = [];
 
-    const modal=document.getElementById("successModal");
+    const modal = document.getElementById("successModal");
     modal.classList.add("show");
-  }
-  catch(error){
+  } catch (error) {
     unsuccessModal.classList.add("shows");
-    headmsg.textContent="Order failed";
-    bodymsg.textContent="Something went wrong. Please try again!";
+    headmsg.textContent = "Order failed";
+    bodymsg.textContent = "Something went wrong. Please try again!";
   }
-
-
 });
 
-continueBtn.addEventListener("click",()=>{
-  const street=document.getElementById("street"),
-        city=document.getElementById("city"),
-        phone=document.getElementById("phone"),
-        postalCode=document.getElementById("postalCode");
+continueBtn.addEventListener("click", () => {
+  const street = document.getElementById("street"),
+    city = document.getElementById("city"),
+    phone = document.getElementById("phone"),
+    postalCode = document.getElementById("postalCode");
 
-  if(
+  if (
     !street.value.trim() ||
     !city.value.trim() ||
     !phone.value.trim() ||
     !postalCode.value.trim()
-  ){
+  ) {
     unsuccessModal.classList.add("shows");
-    headmsg.textContent="Missing information";
-    bodymsg.textContent="Please fill them!";
+    headmsg.textContent = "Missing information";
+    bodymsg.textContent = "Please fill them!";
     return;
   }
-
 });
-const unsuccessModal=document.getElementById("unsuccessModal");
-const successModal=document.getElementById("successModal");
+const unsuccessModal = document.getElementById("unsuccessModal");
+const successModal = document.getElementById("successModal");
 // success
-document.getElementById("successBtn").addEventListener("click",()=>{
+document.getElementById("successBtn").addEventListener("click", () => {
   successModal.classList.remove("show");
 
   document.body.classList.add("fade-in");
@@ -282,10 +285,9 @@ document.getElementById("successBtn").addEventListener("click",()=>{
   }, 500);
 });
 
-
 // unsuccess-  This show when it error,empty cart
 
-document.getElementById("unsuccessBtn").addEventListener("click",()=>{
+document.getElementById("unsuccessBtn").addEventListener("click", () => {
   unsuccessModal.classList.remove("shows");
 
   // document.body.classList.add("fade-in");
@@ -294,7 +296,6 @@ document.getElementById("unsuccessBtn").addEventListener("click",()=>{
   // }, 500);
   gotoStep(1);
 });
-
 
 // 始めましょう
 renderCart();

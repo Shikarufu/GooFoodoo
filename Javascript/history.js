@@ -86,14 +86,21 @@ function openReceipt(order) {
 }
 // if cambodiaa en_KM
 function formatDate(dateString) {
-  return new Date(dateString + "Z").toLocaleString("en-IN", {
+  return new Date(dateString).toLocaleString("en-IN", {
     timeZone: "Asia/Kolkata",
+    day: "2-digit",
+    month: "short",
+    year: "numeric",
+    hour: "2-digit",
+    minute: "2-digit",
   });
 }
 
 let qtyId = 1;
 
+// for openReceipt method
 let allOrder = [];
+// for downloadReceipt method
 let allOrders = [];
 
 fetch(`${api_url}/order/${userId}`)
@@ -160,7 +167,7 @@ document.addEventListener("click", (event) => {
     const orderId = Number(event.target.dataset.id);
 
     const selectedOrder = allOrder.find((order) => order.id === orderId);
-
+    console.log(selectedOrder);
     openReceipt(selectedOrder);
   }
 });
@@ -187,16 +194,16 @@ closeReceipt.addEventListener("click", () => {
 
 async function downloadReceipt(order) {
   const { jsPDF } = window.jspdf;
-  
+
   try {
     const response = await fetch(`${api_url}/orderItem/${order.id}`);
-    const data = await response.json();
-    
+    const items = await response.json();
+
     // Fallback in case the API returns an object containing the array (e.g., data.items or data.data)
-    const items = Array.isArray(data) ? data : (data.items || data.data || []);
 
+    console.log(order.id, items);
     const doc = new jsPDF();
-
+    // fix not load item and order item is still empty
     // Header
     doc.setFontSize(22);
     doc.setTextColor(242, 189, 18);
@@ -236,7 +243,11 @@ async function downloadReceipt(order) {
     items.forEach((item) => {
       doc.text(item.productName || "Unknown Item", 20, y);
       doc.text((item.quantity || 1).toString(), 120, y);
-      doc.text(`$${((item.price || 0) * (item.quantity || 1)).toFixed(2)}`, 160, y);
+      doc.text(
+        `$${((item.price || 0) * (item.quantity || 1)).toFixed(2)}`,
+        160,
+        y,
+      );
       y += 10;
     });
 
@@ -253,13 +264,11 @@ async function downloadReceipt(order) {
 
     // Fixed bug where order.currentUser was undefined (use currentUser.name instead)
     doc.save(`GooFoodoo-Receipt-${currentUser?.name || "Customer"}.pdf`);
-    
   } catch (error) {
     console.error("Failed to generate PDF receipt:", error);
     alert("Could not load order items for the PDF. Please try again.");
   }
 }
-
 
 document.addEventListener("click", (e) => {
   if (e.target && e.target.classList.contains("downloadPDF")) {
