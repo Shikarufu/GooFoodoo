@@ -42,16 +42,26 @@ GooFoodoo
 │   │   │   ├── mvnw.cmd
 │   │   │   └── porm.xml
 ├── CSS/
-│   ├── form.css
-│   └──style.css
+│   ├── checkOut.css
+│   ├── history.css
+│   ├── signIn.css
+│   ├── signUp.css
+│   └── style.css
 ├── HTML/
-│   ├── form.html
+│   ├── checkOut.html
+│   ├── history.html
+│   ├── signIn.html
+│   └── signUp.html
 ├── images/
 │   ├── delivery-boy.png
 │   └── ...
 ├── Javascript/
-│   ├── form.js
-│   └── main.js
+│   ├── checkOut.js
+│   ├── config.js
+│   ├── history.js
+│   ├── main.js
+│   ├── signIn.js.js
+│   └── signUp.js
 │ 
 ├── index.html
 ├── LICENSE
@@ -60,10 +70,14 @@ GooFoodoo
 ```
 
 ## 🛠️ Built With
-
+### Frontend
 - HTML5
 - CSS3
 - Javascript
+### Backend
+- Spring Boot
+#### Database
+- MySQL
 
 ## 🎯 Purpose
 
@@ -91,11 +105,6 @@ cd GooFoodoo
 
 3. Open `index.html` in your browser.
 
-## 📸 Preview
-
-Explore the live version of the project:
-
-🔗 https://shikarufu.github.io/GooFoodoo/
 
 ## 👨‍💻 Author
 
