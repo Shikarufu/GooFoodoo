@@ -183,6 +183,151 @@ function updatePreview() {
   const activeMethod = document.querySelector(".method.active");
   document.getElementById("previewPayment").textContent = selectedPayment;
 }
+// payment method
+
+const paymentContainer = document.getElementById("paymentContainer");
+
+function setUpCard() {
+  const cardPreviewNumber = document.getElementById("cardPreviewNumber"),
+    cardPreviewName = document.getElementById("cardPreviewName"),
+    cardPreviewExpires = document.getElementById("cardPreviewExpires"),
+    cardNumber = document.getElementById("cardNumber"),
+    expiry = document.getElementById("expiry"),
+    cardHolder = document.getElementById("cardHolder");
+
+  cardNumber.addEventListener("input", () => {
+    cardPreviewNumber.textContent = cardNumber.value || "**** **** **** ****";
+  });
+
+  expiry.addEventListener("input", () => {
+    cardPreviewExpires.textContent = expiry.value || "MM/YY";
+  });
+
+  cardHolder.addEventListener("input", () => {
+    cardPreviewName.textContent = cardHolder.value.toUpperCase() || "Your name";
+  });
+}
+
+// this section will change form base on the type of payment
+
+showCardForm();
+
+function showCardForm() {
+  paymentContainer.innerHTML = `
+    <!-- card -preview  -->
+    <div class="payment-form" id="cardForm">
+      <div class="form-group">
+        <label>Card Number</label>
+        <input id="cardNumber" type="text" placeholder="1234 5678 9101" maxlength="19" />
+      </div>
+      <div class="small-input">
+        <div class="form-group">
+          <label>Expiry</label>
+          <input id="expiry" type="text" placeholder="MM/YY" maxlength="5" />
+        </div>
+        <div class="form-group">
+          <label>CVV</label>
+          <input type="text" placeholder="123" maxlength="4" />
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Card Holder</label>
+        <input  id="cardHolder" type="text" placeholder="Your name" maxlength="19" />
+      </div>
+    </div>
+    
+    
+    <div class="card-preview">
+      <div class="card-logo">VISA</div>
+
+      <div id="cardPreviewNumber">**** **** **** ****</div>
+
+      <div class="card-bottom">
+        <div>
+          <span>Card Holder</span>
+          <p id="cardPreviewName">Your Name</p>
+        </div>
+
+        <div>
+          <span>Expires</span>
+          <p id="cardPreviewExpires">MM/YY</p>
+        </div>
+      </div>
+    </div>
+
+    
+  `;
+
+  setUpCard();
+}
+
+function showPaypalForm() {
+  paymentContainer.innerHTML = `
+
+    <div class="paypal-panel">
+
+      <h2>
+          PayPal
+      </h2>
+
+      <p style="margin-bottom:1rem;">
+          Fast & Secure Checkout
+      </p>
+
+      <div class="inpuT">
+        <label>Email</label>
+        <input
+          style="margin-bottom:1rem;"
+          type="email"
+          placeholder="PayPal Email"
+        >
+        <label>Password</label>
+        <input
+          type="password"
+          placeholder="Password"
+        >
+      </div>
+
+
+    </div>
+
+  `;
+}
+
+function showCashForm() {
+  paymentContainer.innerHTML = `
+
+    <div class="cash-panel">
+
+      <div class="money">
+
+          💵 💵 💵
+
+      </div>
+
+      <div class="bike">
+
+          🏍️
+
+      </div>
+
+      <h2>
+
+          Cash On Delivery
+
+      </h2>
+
+      <p>
+
+          Pay directly to the driver
+          when your food arrives.
+
+      </p>
+
+    </div>
+
+  `;
+}
 
 // payment click
 document.querySelectorAll(".method").forEach((m) => {
@@ -193,8 +338,14 @@ document.querySelectorAll(".method").forEach((m) => {
 
     m.classList.add("active");
 
-    selectedPayment =
-      m.querySelector("span")?.textContent || m.dataset.method || "Card";
+    selectedPayment = m.querySelector("span")?.textContent || m.dataset.method;
+    if (selectedPayment === "Card") {
+      showCardForm();
+    } else if (selectedPayment === "PayPal") {
+      showPaypalForm();
+    } else if (selectedPayment === "Cash") {
+      showCashForm();
+    }
   });
 });
 
