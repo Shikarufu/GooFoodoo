@@ -49,6 +49,7 @@ hamburger.addEventListener("click", () => {
   bar.classList.toggle("fa-xmark");
 });
 
+
 // click anywhere or with button to close
 document.addEventListener("click",(e)=>{
   if(
@@ -147,6 +148,8 @@ const updateTotals = () => {
 
 // the list will show once user select category
 const showCart = (category = "") => {
+  let favorites=JSON.parse(localStorage.getItem("favorites") )|| [];
+
   cardList.innerHTML = "";
   let filterProducts = productList;
 
@@ -157,21 +160,52 @@ const showCart = (category = "") => {
   }
 
   filterProducts.forEach((p) => {
+
+
+    
+    // fv button
+    const isFv=favorites.includes(p.id);
+
     const orderCard = document.createElement("div");
     orderCard.classList.add("order-card");
-
+    // remember innerHTML everthing inside it we can style it
     orderCard.innerHTML = `
     <div class="card-image">
       <img src="${p.image}" alt="burger">
     </div>
     <h4>${p.name}</h4>
     <h4 class="price">${p.price}</h4>
-    <a href="#" class="btn card-btn">Add to Cart</a>   
+    <div class="bottom-card">
+      <button
+       class="fv-btn
+       ${isFv ? "active": ""}"
+        data-id=${p.id}
+       >
+       ${isFv ? "❤️" : "🤍"}</button>
+      <a href="#" class="btn card-btn">Add to Cart</a>   
+    </div>
     `;
 
     cardList.appendChild(orderCard);
 
     const cardBtn = orderCard.querySelector(".card-btn");
+    const fvBtn=orderCard.querySelector(".fv-btn");
+    
+    fvBtn.addEventListener("click",()=>{
+      const index=favorites.indexOf(p.id);
+      
+      if(index > -1){
+        favorites.splice(index,1);
+      }
+      else{
+        favorites.push(p.id);
+      }
+
+      localStorage.setItem("favorites",JSON.stringify(favorites));
+      showCart(category);
+    });
+
+
     cardBtn.addEventListener("click", (e) => {
       // this prevent page is refreshing
       e.preventDefault();
