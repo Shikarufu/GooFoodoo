@@ -18,19 +18,23 @@
 
   --bg: #fffdf7;
   --card-bg: #ffffff;
-  --text: #212121;
+  --textTop: #000000;
   --secondary-text: #6b7280;
 }
 
 :root:has(#theme:checked) {
   --bg: #0f1115;
   --card-bg: #1a1d24;
-  --text: #f5f5f5;
+  --text: #212121;
+  --textTop:#ffffff;
+
   --secondary-text: #b8b8b8;
   --lead: #f5f5f5;
   --eye-ball: #121212;
-  --pure-white: #1a1d24;
-  --hint-yellow: #272216;
+  --pure-white: #fff;
+
+  --hint-yellow: #fcf1cc;
+
   --theme-bg-clr: rgb(15, 15, 15);
   --theme-toggle-icon: white;
   --theme-toggle-border: rgba(255, 255, 255, 0.25);
@@ -199,6 +203,8 @@ img {
   font-size: 2rem;
   font-weight: bold;
   color: var(--gold-finger);
+  filter: drop-shadow(rgba(242, 189, 18, 1) 0 0 5px);
+
 }
 
 .btn {
@@ -345,6 +351,7 @@ img {
   font-weight: 700;
   font-family: "Tiny5 Duo", sans-serif;
   animation: run 0.4s ease forwards;
+  color: var(--textTop);
 }
 /* comback doing the sign in button style and style the msg */
 
@@ -645,7 +652,10 @@ h4 {
   gap: 10px;
   padding: 0.2rem;
   transition: 0.4s;
+  color: var(--text);
 }
+
+
 
 #select-category option:first-of-type {
   border-radius: 8px 8px 0 0;
@@ -698,7 +708,14 @@ selectedcontent .icon {
 #select-category option:hover {
   cursor: pointer;
   background: var(--pure-white);
+  color: var();
+
 }
+
+#select-category{
+  background: var(--hint-yellow);
+}
+
 
 #category-form {
   background: var(--gold-finger);
@@ -881,7 +898,9 @@ selectedcontent .icon {
 
 .app-container .image-container img {
   width: 25rem;
+
 }
+
 
 /* section 5 */
 .input-container {
