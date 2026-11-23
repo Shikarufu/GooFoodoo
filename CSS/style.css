@@ -15,23 +15,29 @@
   --eye-ball: #fffdf7;
   --hint-yellow: #fcf1cc;
   --pure-white: #fff;
-  --clr-bg: rgb(209 250 229);
-  --clr-text: rgb(15 23 42);
-  --theme-bg-clr: rgb(0, 0, 0);
-  --theme-toggle-icon: rgb(15 23 42);
-  --theme-toggle-border: rgba(0 0 0 / 0.25);
-  --toggle-label-txt: "dark";
+
+  --bg: #fffdf7;
+  --card-bg: #ffffff;
+  --text: #212121;
+  --secondary-text: #6b7280;
 }
 
-:root:has(input#theme:checked) {
-  --clr-txt: white;
+:root:has(#theme:checked) {
+  --bg: #0f1115;
+  --card-bg: #1a1d24;
+  --text: #f5f5f5;
+  --secondary-text: #b8b8b8;
+  --lead: #f5f5f5;
+  --eye-ball: #121212;
+  --pure-white: #1a1d24;
+  --hint-yellow: #272216;
+  --theme-bg-clr: rgb(15, 15, 15);
+  --theme-toggle-icon: white;
+  --theme-toggle-border: rgba(255, 255, 255, 0.25);
   --theme-toggle-light-scale: 1;
   --theme-toggle-dark-scale: 0;
-  --theme-toggle-icon: white;
-  --theme-toggle-border: rgba(255 255 255 / 0.25);
   --theme-toggle-rotate: 1turn;
   --theme-bg-scale: 1.25;
-  --toggle-label-txt: "light";
 }
 
 /* hide checkbox */
@@ -56,27 +62,9 @@
   transition: outline 150ms ease-in-out;
   cursor: pointer;
   border-radius: 50%;
-  outline: 1px solid var(--theme-toggle-border);
   color: var(--theme-toggle-icon);
 }
-.theme-toggle::before {
-  position: absolute;
-  top: 100%;
-  left: 50%;
-  translate: -50% var(--toggle-label-y, -10px);
-  font-size: 0.7rem;
-  text-transform: uppercase;
-  opacity: var(--toggle-label-opacity, 0);
-  transition-property: opacity, translate;
-  transition-duration: 150ms;
-  transition-timing-function: ease-in-out;
-}
-input#theme:focus-within ~ label,
-.theme-toggle:hover {
-  outline-width: 10px;
-  --toggle-label-y: 20px;
-  --toggle-label-opacity: 1;
-}
+
 .theme-toggle > svg {
   grid-area: 1/1;
   transition:
@@ -92,25 +80,6 @@ input#theme:focus-within ~ label,
 }
 .theme-toggle svg {
   width: 20px;
-}
-
-/* mask for dark theme */
-.theme-mask {
-  position: fixed;
-  display: grid;
-  isolation: isolate;
-  overflow: hidden;
-  inset: 0;
-  grid-template-rows: repeat(25, 1fr);
-  pointer-events: none;
-  z-index: -1;
-}
-/* mask "cells" */
-.theme-mask > div {
-  background-color: var(--theme-bg-clr);
-  scale: var(--theme-bg-scale, 0);
-  transition: all 300ms ease-in-out;
-  transition-delay: calc(var(--i) * 10ms);
 }
 
 body {
@@ -405,6 +374,10 @@ img {
   color: var(--lead);
   text-align: center;
   line-height: 20px;
+}
+
+.desktop-action{
+  gap: 30px;
 }
 
 .desktop-action .hamburger {
@@ -1006,6 +979,10 @@ input[type="email"]:focus {
   .btn:hover {
     background: var(--gold-finger);
     transform: none;
+  }
+
+  .desktop-action{
+    gap: 10px;
   }
 
   .desktop-action .hamburger {
