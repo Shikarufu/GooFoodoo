@@ -1053,7 +1053,7 @@ input[type="email"]:focus {
     transform: translateX(-50%);
     width: 20rem;
     padding: 2rem;
-    background: var(--pure-white);
+    background:white;
     border: 0.1rem solid var(--gold-finger);
     border-radius: 2rem;
     box-shadow:
