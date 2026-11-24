@@ -16,23 +16,26 @@
   --eye-ball: #fffdf7;
   --hint-yellow: #fcf1cc;
   --pure-white: #fff;
-
+  --text: #212121;
+  --shadow:rgba(0, 0, 0, 0.3);
   --bg: #fffdf7;
   --card-bg: #ffffff;
   --textTop: #000000;
   --secondary-text: #6b7280;
 }
 /* tmr fix the mode */
-:root:has(#theme:checked) {
+:root[data-theme="dark"] {
   --bg: #0f1115;
   --card-bg: #1a1d24;
   --text: #212121;
   --textTop: #ffffff;
-
+  --lead:#fff;
   --secondary-text: #b8b8b8;
-  --lead: #f5f5f5;
+  --shadow:rgba(255, 229, 111, 0.825);
+
   --eye-ball: #121212;
-  --pure-white: #fff;
+  --pure-white: #121212;
+
 
   --hint-yellow: #fcf1cc;
 
@@ -100,7 +103,7 @@ body.fade-out {
 a {
   font-size: 1.1rem;
   text-decoration: none;
-  color: var(--lead);
+  color: var(--textTop);
 }
 
 .flex {
@@ -168,6 +171,7 @@ img {
   height: auto;
   margin: auto;
   display: block;
+
 }
 
 .p-top {
@@ -405,6 +409,10 @@ img {
   min-height: calc(100vh - 14vh);
 }
 
+.content h2{
+  color: var(--text);
+}
+
 .content,
 .image-container,
 .service-card {
@@ -414,7 +422,7 @@ img {
 
 h1 {
   font-size: 5.6vw;
-  color: var(--lead);
+  color: var(--textTop);
 }
 
 h1 span {
@@ -442,11 +450,14 @@ p {
   line-height: 3rem;
   box-shadow: rbgba(0, 0, 0, 0.1) 0 2px 1px;
   transition: 0.3s ease-in-out;
+  color: var(--text);
 }
 
+
 .social-icons:hover {
-  background: var(--lead);
+  background:var(--lead);
   color: var(--pure-white);
+
 }
 
 /* section 1 */
@@ -460,13 +471,13 @@ h5 {
 h2 {
   font-size: 3.7rem;
   text-transform: capitalize;
-  color: var(--lead);
+  color: var(--textTop);
 }
 
 h3 {
   font-size: 2rem;
   text-transform: capitalize;
-  color: var(--lead);
+  color: var(--textTop);
 }
 
 .service-card h3 {
@@ -899,6 +910,7 @@ selectedcontent .icon {
 
 .app-container .image-container img {
   width: 25rem;
+
 }
 
 /* section 5 */
@@ -907,12 +919,14 @@ selectedcontent .icon {
   max-width: 100%;
   background: var(--pure-white);
   padding: 0.8rem;
-  box-shadow: rgba(0, 0, 0, 0.1) 0 5px 8px;
+  box-shadow: var(--shadow)  0 0 8px;
   border-radius: 1rem;
   margin: 4rem auto 0 auto;
 }
 
 input[type="email"] {
+  color: var(--textTop);
+
   flex: 1;
   height: 7vh;
   background: transparent;
@@ -948,11 +962,16 @@ input[type="email"]:focus {
 }
 
 .footer-wrapper .social-icons {
-  background: var(--pure-white);
+  background: var(--hint-yellow);
+
 }
 
 .footer-wrapper .social-icons:hover {
   background: var(--lead);
+}
+
+.footer-wrapper li h4{
+  color: var(--text);
 }
 
 .footer-link {
@@ -1047,6 +1066,10 @@ input[type="email"]:focus {
   .mobile-menu-active {
     left: 50%;
     transform: translateX(-50%);
+  }
+
+  .mobile-menu li a{
+    color:black;
   }
 
   .navbar li {

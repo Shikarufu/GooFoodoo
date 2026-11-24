@@ -9,6 +9,7 @@
 }
 /* decalre color variable */
 :root {
+  color-scheme: only light;
   --lead: #212121;
   --gold-finger: #f2bd12;
   --eye-ball: #fffdf7;
@@ -26,6 +27,8 @@
   --shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
   --radius: 16px;
 }
+
+
 
 body {
   background: var(--hint-yellow);

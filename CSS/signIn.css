@@ -9,6 +9,7 @@
 }
 /* decalre color variable */
 :root {
+  color-scheme: only light;
   --lead: #212121;
   --gold-finger: #f2bd12;
   --eye-ball: #fffdf7;
