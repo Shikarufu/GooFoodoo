@@ -20,7 +20,6 @@ const cartValue = document.querySelector(".cart-value");
 
 // const api_url="https://goofoodoobackend-production.up.railway.app";
 
-
 // using id
 const topBtn = document.getElementById("topbtn");
 const msg = document.getElementById("msg"),
@@ -49,14 +48,13 @@ hamburger.addEventListener("click", () => {
   bar.classList.toggle("fa-xmark");
 });
 
-
 // click anywhere or with button to close
-document.addEventListener("click",(e)=>{
-  if(
+document.addEventListener("click", (e) => {
+  if (
     mobileMenu.classList.contains("mobile-menu-active") &&
     !mobileMenu.contains(e.target) &&
     !hamburger.contains(e.target)
-  ){
+  ) {
     hamburger.classList.remove("mobile-menu-active");
     mobileMenu.classList.remove("mobile-menu-active");
 
@@ -64,7 +62,6 @@ document.addEventListener("click",(e)=>{
     bar.classList.remove("fa-xmark");
   }
 });
-
 
 // Back to top button
 window.addEventListener("scroll", () => {
@@ -84,15 +81,13 @@ topBtn.addEventListener("click", () => {
 
 // darkmode
 
-
 //click outside
-
 
 selectCategory.addEventListener("change", () => {
   const selectedCategory = selectCategory.value;
   // console.log(selectedCategory);
-  if(selectedCategory === ""){
-    cardList.innerHTML="";
+  if (selectedCategory === "") {
+    cardList.innerHTML = "";
     return;
   }
   showCart(selectedCategory);
@@ -151,7 +146,7 @@ const updateTotals = () => {
 
 // the list will show once user select category
 const showCart = (category = "") => {
-  let favorites=JSON.parse(localStorage.getItem("favorites") )|| [];
+  let favorites = JSON.parse(localStorage.getItem("favorites")) || [];
 
   cardList.innerHTML = "";
   let filterProducts = productList;
@@ -163,11 +158,8 @@ const showCart = (category = "") => {
   }
 
   filterProducts.forEach((p) => {
-
-
-    
     // fv button
-    const isFv=favorites.includes(p.id);
+    const isFv = favorites.includes(p.id);
 
     const orderCard = document.createElement("div");
     orderCard.classList.add("order-card");
@@ -181,7 +173,7 @@ const showCart = (category = "") => {
     <div class="bottom-card">
       <button
        class="fv-btn
-       ${isFv ? "active": ""}"
+       ${isFv ? "active" : ""}"
         data-id=${p.id}
        >
        ${isFv ? "❤️" : "🤍"}</button>
@@ -192,22 +184,20 @@ const showCart = (category = "") => {
     cardList.appendChild(orderCard);
 
     const cardBtn = orderCard.querySelector(".card-btn");
-    const fvBtn=orderCard.querySelector(".fv-btn");
-    
-    fvBtn.addEventListener("click",()=>{
-      const index=favorites.indexOf(p.id);
-      
-      if(index > -1){
-        favorites.splice(index,1);
-      }
-      else{
+    const fvBtn = orderCard.querySelector(".fv-btn");
+
+    fvBtn.addEventListener("click", () => {
+      const index = favorites.indexOf(p.id);
+
+      if (index > -1) {
+        favorites.splice(index, 1);
+      } else {
         favorites.push(p.id);
       }
 
-      localStorage.setItem("favorites",JSON.stringify(favorites));
+      localStorage.setItem("favorites", JSON.stringify(favorites));
       showCart(category);
     });
-
 
     cardBtn.addEventListener("click", (e) => {
       // this prevent page is refreshing
@@ -244,7 +234,7 @@ const addToCart = (product) => {
   }
 
   cartProduct.push(product);
-  localStorage.setItem("cartProduct",JSON.stringify(cartProduct));
+  localStorage.setItem("cartProduct", JSON.stringify(cartProduct));
 
   let quantity = 1;
   let price = parseFloat(product.price.replace("$", ""));
@@ -300,7 +290,7 @@ const addToCart = (product) => {
       setTimeout(() => {
         cartItem.remove();
         cartProduct = cartProduct.filter((item) => item.id !== product.id);
-        localStorage.setItem("cartProduct",JSON.stringify(cartProduct));
+        localStorage.setItem("cartProduct", JSON.stringify(cartProduct));
 
         updateTotals();
       }, 300);
@@ -340,87 +330,77 @@ signIn.forEach((sign) => {
   });
 });
 
+const checkBtn = document.getElementById("checkBtn");
 
-
-const checkBtn=document.getElementById("checkBtn");
-
-checkBtn.addEventListener("click",(e)=>{
+checkBtn.addEventListener("click", (e) => {
   e.preventDefault();
 
   document.body.classList.add("fade-out");
-  setTimeout(()=>{
-    window.location.href="HTML/checkOut.html";
-  },500); 
-
+  setTimeout(() => {
+    window.location.href = "HTML/checkOut.html";
+  }, 500);
 });
 
-
 // fetch username to display on home page
-const userId=localStorage.getItem("userId");
+const userId = localStorage.getItem("userId");
 
-if(!userId){
-  opt.textContent=`Please sign in`;
+if (!userId) {
+  opt.textContent = `Please sign in`;
 }
 
+let welcomeUser = document.getElementById("welcomeUser"),
+  userName = document.getElementById("userName"),
+  userMail = document.getElementById("userMail"),
+  dropDown = document.getElementById("dropdown"),
+  avatar = document.getElementById("avatar"),
+  logoutBtn = document.getElementById("logoutBtn"),
+  signInBtn = document.getElementById("signInBtn"),
+  signInBtnMobile = document.getElementById("signInBtnM"),
+  username = document.getElementById("username"),
+  opt = document.getElementById("opt");
 
-let welcomeUser=document.getElementById("welcomeUser"),
-    userName=document.getElementById("userName"),
-    userMail=document.getElementById("userMail"),
-    dropDown=document.getElementById("dropdown"),
-    avatar=document.getElementById("avatar"),
-    logoutBtn=document.getElementById("logoutBtn"),
-    signInBtn=document.getElementById("signInBtn"),
-    signInBtnMobile=document.getElementById("signInBtnM"),
-    username=document.getElementById("username"),
-    opt=document.getElementById("opt");
-    
-if(userId){
+if (userId) {
   fetch(`${api_url}/${userId}`)
-  .then(response=>response.json()).then(user=>{
-    welcomeUser.textContent=`Welcome back ${user.name} 💖`;
-    userName.textContent=`${user.name}`;
-    userMail.textContent=`${user.email}`;
-    signInBtn.style.display="none";
-    signInBtnMobile.style.display="none";
-    avatar.style.display="block";
+    .then((response) => response.json())
+    .then((user) => {
+      welcomeUser.textContent = `Welcome back ${user.name} 💖`;
+      userName.textContent = `${user.name}`;
+      userMail.textContent = `${user.email}`;
+      signInBtn.style.display = "none";
+      signInBtnMobile.style.display = "none";
+      avatar.style.display = "block";
 
-    username.textContent=`${user.name.charAt(0).toUpperCase()}`;
-    selectCategory.disabled=false;
-    opt.textContent=`Please select category`;
-    checkBtn.disabled=false;
-
-
-  })
+      username.textContent = `${user.name.charAt(0).toUpperCase()}`;
+      selectCategory.disabled = false;
+      opt.textContent = `Please select category`;
+      checkBtn.disabled = false;
+    });
 }
-
-
 
 // when user click user icon show the detail such as name and email
-avatar.addEventListener("click",()=>{
+avatar.addEventListener("click", () => {
   dropDown.classList.toggle("show");
 });
 
-document.addEventListener("click",(e)=>{
-  if(
-    dropDown.classList.contains("show")&&
+document.addEventListener("click", (e) => {
+  if (
+    dropDown.classList.contains("show") &&
     !dropDown.contains(e.target) &&
     !avatar.contains(e.target)
-  ){
+  ) {
     dropDown.classList.remove("show");
   }
 });
 
-
-logoutBtn.addEventListener("click",()=>{
+logoutBtn.addEventListener("click", () => {
   localStorage.removeItem("userId");
 
   window.location.reload();
   // userIcon.style.display="none";
 });
 
-
-const transactionBtn=document.getElementById("transactionBtn");
-transactionBtn.addEventListener("click",(e)=>{
+const transactionBtn = document.getElementById("transactionBtn");
+transactionBtn.addEventListener("click", (e) => {
   e.preventDefault();
 
   document.body.classList.add("fade-out");

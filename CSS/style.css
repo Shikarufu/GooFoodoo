@@ -23,6 +23,7 @@
   --textTop: #000000;
   --secondary-text: #6b7280;
   --opt: #fff;
+  --fvBtn: #fff;
 }
 /* tmr fix the mode */
 :root[data-theme="dark"] {
@@ -36,7 +37,7 @@
   --opt: #fff;
   --eye-ball: #121212;
   --pure-white: #121212;
-
+  --fvBtn: #121212;
   --hint-yellow: #fcf1cc;
 
   --theme-bg-clr: rgb(15, 15, 15);
@@ -549,7 +550,7 @@ h4 {
   position: absolute;
   top: 4px;
   left: 15px;
-  background: white;
+  background: var(--fvBtn);
   width: 40px;
   height: 40px;
   border-radius: 50%;
@@ -573,7 +574,6 @@ h4 {
 
 .card-image {
   height: 200px;
-
   display: flex;
   justify-content: center;
   align-items: center;
@@ -1185,6 +1185,10 @@ input[type="email"]:focus {
   .logo {
     font-size: 1.5rem;
   }
+  .logo:hover {
+    filter: none;
+    transform: none;
+  }
   .cart-icon {
     font-size: 1rem;
   }
@@ -1223,5 +1227,102 @@ input[type="email"]:focus {
   .mobile-menu {
     width: 15rem;
     padding: 1rem;
+  }
+  #welcomeUser {
+    left: 10%;
+    width: 80%;
+    font-size: 1.3rem;
+  }
+
+  .content h1 {
+    font-size: 3rem;
+  }
+
+  .content p {
+    font-size: 1.3rem;
+  }
+  .btn {
+    padding: 0.7rem 1.2rem;
+    font-size: 1rem;
+  }
+  .social-icons {
+    width: 2.8rem;
+    height: 2.7rem;
+    font-size: 1rem;
+  }
+
+  h5 {
+    font-size: 1.3rem;
+  }
+  h2 {
+    font-size: 2.3rem;
+  }
+
+  .service-card img {
+    width: 90px;
+  }
+  .service-card h3 {
+    font-size: 2rem;
+  }
+
+  .service-card p {
+    font-size: 1.4rem;
+  }
+
+  #category-form {
+    width: 100%;
+  }
+  .order-card {
+    flex-basis: 100px;
+  }
+
+  .order-card img {
+    width: 12rem;
+  }
+  .bottom-card {
+    width: 110px;
+  }
+
+  .bottom-card .card-btn {
+    font-size: 0.75rem;
+  }
+
+  .app-container {
+    border-radius: 3rem;
+  }
+
+  .app-container .content h2 {
+    font-size: 2.5rem;
+  }
+
+  .app-container .image-container img {
+    width: 20rem;
+  }
+
+  .input-container {
+    width: 40rem;
+    padding: 0.2rem;
+  }
+
+  .footer-container {
+    margin-top: 10rem;
+    padding-block: 4rem;
+    background: var(--hint-yellow);
+  }
+
+  .footer-container .flex {
+    align-items: flex-start;
+  }
+
+  .footer-wrapper {
+    /* use more responsive */
+    flex: 1;
+    flex-basis: 10px;
+  }
+
+  .footer-link {
+    color: gray;
+    font-size: .9rem;
+    transition: 0.3s ease-in-out;
   }
 }
