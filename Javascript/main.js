@@ -97,23 +97,10 @@ let productList = [];
 let cartProduct = JSON.parse(localStorage.getItem("cartProduct")) || [];
 
 const updateTotals = () => {
-  let totalPrice = 0;
-  let totalQuantity = 0;
-  document.querySelectorAll(".item").forEach((item) => {
-    const quantity = parseInt(
-      item.querySelector(".quantity-value").textContent,
-    );
-    const price = parseFloat(
-      item.querySelector(".item-total").textContent.replace("$", ""),
-    );
+  const totalQty=cartProduct.reduce((sum,item)=>sum +(item.quantity || 1), 0);
 
-    totalPrice += price;
-    totalQuantity += quantity;
-  });
-
-  cartTotal.textContent = `$${totalPrice.toFixed(2)}`;
   // cartValue.textContent=cartProduct.length;
-  cartValue.textContent = totalQuantity;
+  cartValue.textContent = parseInt(totalQty);
 };
 
 //
@@ -236,8 +223,6 @@ const addToCart = (product) => {
   cartProduct.push(product);
   localStorage.setItem("cartProduct", JSON.stringify(cartProduct));
 
-  let quantity = 1;
-  let price = parseFloat(product.price.replace("$", ""));
 
   const cartItem = document.createElement("div");
   cartItem.classList.add("item");
@@ -250,52 +235,43 @@ const addToCart = (product) => {
     <h4>${product.name}</h4>
     <h4 class="item-total">${product.price}</h4>
   </div>
-  <div class="flex">
-    <a href="#" class="quantity-btn minus">
-      <i class="fa-solid fa-minus"></i>
-    </a>
-    <h4 class="quantity-value">${quantity}</h4>
-    <a href="#" class="quantity-btn plus">
-      <i class="fa-solid fa-plus"></i>
-    </a>
-  </div>
+
   `;
 
   cartList.appendChild(cartItem);
+
   updateTotals();
 
-  const quantityValue = cartItem.querySelector(".quantity-value");
-  const itemTotal = cartItem.querySelector(".item-total");
 
-  const plusBtn = cartItem.querySelector(".plus");
-  plusBtn.addEventListener("click", (e) => {
-    e.preventDefault();
-    quantity++;
-    quantityValue.textContent = quantity;
-    itemTotal.textContent = `$${(price * quantity).toFixed(2)}`;
-    updateTotals();
-  });
+  // const plusBtn = cartItem.querySelector(".plus");
+  // plusBtn.addEventListener("click", (e) => {
+  //   e.preventDefault();
+  //   quantity++;
+  //   quantityValue.textContent = quantity;
+  //   itemTotal.textContent = `$${(price * quantity).toFixed(2)}`;
+  //   updateTotals();
+  // });
 
-  const minusBtn = cartItem.querySelector(".minus");
-  minusBtn.addEventListener("click", (e) => {
-    e.preventDefault();
-    if (quantity > 1) {
-      quantity--;
-      quantityValue.textContent = quantity;
-      itemTotal.textContent = `$${(price * quantity).toFixed(2)}`;
-      updateTotals();
-    } else {
-      cartItem.classList.add("slide-out");
+  // const minusBtn = cartItem.querySelector(".minus");
+  // minusBtn.addEventListener("click", (e) => {
+  //   e.preventDefault();
+  //   if (quantity > 1) {
+  //     quantity--;
+  //     quantityValue.textContent = quantity;
+  //     itemTotal.textContent = `$${(price * quantity).toFixed(2)}`;
+  //     updateTotals();
+  //   } else {
+  //     cartItem.classList.add("slide-out");
 
-      setTimeout(() => {
-        cartItem.remove();
-        cartProduct = cartProduct.filter((item) => item.id !== product.id);
-        localStorage.setItem("cartProduct", JSON.stringify(cartProduct));
+  //     setTimeout(() => {
+  //       cartItem.remove();
+  //       cartProduct = cartProduct.filter((item) => item.id !== product.id);
+  //       localStorage.setItem("cartProduct", JSON.stringify(cartProduct));
 
-        updateTotals();
-      }, 300);
-    }
-  });
+  //       updateTotals();
+  //     }, 300);
+  //   }
+  // });
   // 3:47:52
 };
 

@@ -12,9 +12,12 @@
 :root {
   color-scheme: only light;
   --lead: #212121;
+  --btnText:#121212;
+  --btnbg:#fff;
   --gold-finger: #f2bd12;
   --eye-ball: #fffdf7;
   --hint-yellow: #fcf1cc;
+  --tab:#ffca1e;
   --pure-white: #fff;
   --text: #212121;
   --shadow: rgba(0, 0, 0, 0.3);
@@ -27,8 +30,11 @@
 }
 /* tmr fix the mode */
 :root[data-theme="dark"] {
+  --tab:#eab300;
   --bg: #0f1115;
   --card-bg: #1a1d24;
+  --btnText:#fff;
+  --btnbg:#121212;
   --text: #212121;
   --textTop: #ffffff;
   --lead: #fff;
@@ -600,12 +606,16 @@ h4 {
   justify-content: center;
   align-items: center;
   z-index: 99;
-  box-shadow: rgba(0, 0, 0, 0.1) -10px -10px 10px;
+  box-shadow: var(--shadow) 0 0 7px;
   transition: 0.3s ease-in-out;
 }
 
 .cart-tab-active {
   inset: 0 0 0 auto;
+}
+
+.cart-tab h3{
+  color: var(--text);
 }
 
 .cart-list {
@@ -801,12 +811,12 @@ selectedcontent .icon {
 }
 
 .btn-container .btn {
-  background: var(--lead);
+  background: var(--btnbg);
+  color: var(--btnText);
 }
 
 .btn-container .btn:hover {
   background: var(--gold-finger);
-  color: var(--lead);
 }
 
 .item {
@@ -821,8 +831,8 @@ selectedcontent .icon {
   transform: translateX(50%);
 }
 
-.cart-list .item:nth-child(even) {
-  background: var(--eye-ball);
+.cart-list .item {
+  background: var(--tab);
 }
 
 .item .item-image img {
@@ -1105,9 +1115,8 @@ input[type="email"]:focus {
     transform: none;
   }
 
-  .btn-container .btn:hover {
-    background: var(--lead);
-    color: var(--pure-white);
+  .btn-container .btn:hover{
+    background: var(--btnbg);
   }
 
   #welcomeUser {
@@ -1128,6 +1137,11 @@ input[type="email"]:focus {
   }
 
   /* section 2 */
+
+  
+  .cart-tab{
+    width: 30rem;
+  }
 
   .order-card {
     flex-basis: 150px;
@@ -1272,6 +1286,12 @@ input[type="email"]:focus {
   #category-form {
     width: 100%;
   }
+
+  .cart-tab {
+    width: 25.5rem;
+    padding-block: 2rem;
+
+  }
   .order-card {
     flex-basis: 100px;
   }
@@ -1322,7 +1342,13 @@ input[type="email"]:focus {
 
   .footer-link {
     color: gray;
-    font-size: .9rem;
+    font-size: 0.9rem;
     transition: 0.3s ease-in-out;
+  }
+}
+
+@media screen and (max-width: 376px) {
+  .cart-tab{
+    width: 21rem;
   }
 }
