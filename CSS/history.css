@@ -223,6 +223,7 @@ body {
 
 .viewBtn{
   background:#f2bd12;
+  color: black;
   border: none;
   border-radius: 1rem;
   padding: .7rem 1rem;
