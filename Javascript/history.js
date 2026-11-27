@@ -72,6 +72,7 @@ function openReceipt(order) {
 				</h3>
 				<button class="downloadPDF" data-id="${order.id}" style="
 								padding:.5rem;
+                margin-bottom:.5rem;
                 color:black;
 								border-radius:1rem;
 								cursor:pointer;

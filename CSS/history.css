@@ -162,11 +162,18 @@ body {
 .receipt-content{
   display: flex;
   flex-direction: column;
-  background:white;
+  background:var(--bg);
   border-radius: 1rem;
   width: fit-content;
   padding: 1rem 1.2rem 0 1.2rem;
   height: 250px;
+  box-shadow: var(--shadow)0 0 8px;
+}
+
+.receipt-content h2,
+.receipt-content p,
+.receipt-content h3{
+  color: var(--text);
 }
 
 #closeReceipt{
