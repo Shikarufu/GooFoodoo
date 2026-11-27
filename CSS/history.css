@@ -15,9 +15,11 @@
   --eye-ball: #fffdf7;
   --hint-yellow: #fcf1cc;
   --pure-white: #fff;
-  --primary: #ff6b00;
+  --primary: #ffd000;
+  --text:#121212;
   --primary-light: #fff0e6;
   --bg: #f8f9fa;
+  --shadow: rgba(0, 0, 0, 0.3);
   --surface: #ffffff;
   --text-main: #1a1d1e;
   --text-muted: #6c757d;
@@ -26,6 +28,15 @@
   --success-bg: #e8f5e9;
   --shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
   --radius: 16px;
+
+}
+
+:root[data-theme="dark"]{
+  --text-muted: #a7aeb4;
+  --bg:#121212;
+  --text:#fff;
+  --shadow: rgba(255, 229, 111, 0.825);
+
 }
 
 
@@ -50,6 +61,7 @@ body.fade-in {
   align-items: center;
   text-decoration: none;
   background-color: var(--gold-finger);
+  box-shadow: var(--shadow) 0 0 5px;
   width: 5rem;
   padding: 0.3rem;
   color: black;
@@ -75,9 +87,9 @@ body {
 .container {
   width: 100%;
   max-width: 800px;
-  background: var(--surface);
+  background: var(--bg);
   border-radius: var(--radius);
-  box-shadow: var(--shadow);
+  box-shadow: var(--shadow) 0 0 8px;
   overflow: hidden;
   border: 1px solid var(--border);
 }
@@ -94,6 +106,11 @@ body {
 .header h2 {
   font-size: 1.5rem;
   font-weight: 700;
+  color:  var(--text);
+}
+
+.header h2 i{
+  color: rgb(5, 181, 5);
 }
 
 .stats{
@@ -178,12 +195,18 @@ body {
 .history-card {
   display: flex;
   flex-direction: column;
-  background: var(--surface);
+  background: var(--bg);
   border: 1px solid var(--border);
   border-radius: 16px;
   padding: 1.5rem;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
   transition: all 0.2s ease;
+  color:var(--text);
+
+}
+
+.order-detail p{
+  color: var(--text-muted);
 }
 
 .history-card:hover {
